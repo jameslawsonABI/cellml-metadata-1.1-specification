@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <title>Metadata 1.1 Specification Roadmap</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/" />
+  <link href="../../../website documentation/manual.css" rel="stylesheet"
+  type="text/css" />
+</head>
+
+<body>
+<h3 class="Subheading"><b>CellML Metadata Specification 1.1</b></h3>
+<b><br />
+</b>
+
+<p align="left"><b>Prime directives: <br />
+</b> </p>
+<ul>
+  <li><b>Convert all as much metadata to Dublin Core compliance as
+  possible.</b></li>
+  <li><b>Implement modular specification structure</b></li>
+  <li><b>Achieve final draft of Metadata 1.1 specification by 4th April 2009
+    for presentation at CellML Workshop 2009</b><br />
+  </li>
+</ul>
+<br />
+<a href="https://tracker.physiomeproject.org/show_bug.cgi?id=1414"
+target="_self">Tracker Item 1414</a><br />
+<br />
+<b>Modular Specification Structure</b><br />
+
+<ul>
+  <li>proposal to split into an 'umbrella' specification and submodules
+    <ul>
+      <li><i>graphing</i></li>
+      <li><i>simulation</i></li>
+      <li><i>common annotations</i></li>
+      <li><i>biological annotation</i></li>
+    </ul>
+  </li>
+  <li>in which case 'core' CellML Metadata specification will primarily just
+    define how modules are organised and how the metadata is serialised in
+    RDF/XML.</li>
+  <li>Andre: "Core specification... simply says that any element can have a
+    cmeta:id and that ID can be used to resolve metadata references. And that
+    any element can have rdf:RDF child elements. Then all annotations are
+    defined in separate specifications."<br />
+  </li>
+</ul>
+<br />
+&lt;UNCERTAIN&gt;<br />
+<br />
+<sub><i><b>Graphing</b></i><br />
+</sub>
+<ul>
+  <li><sub>See http://www.cellml.org/specifications/metadata/graphs<br />
+    </sub></li>
+</ul>
+<ul>
+  <li><sub>current graphing metadata spec draft needs to be implemented (in
+    PCEnv or Andre's tools) to be tested before it gets codified in the
+    specification</sub></li>
+  <li><sub>things to add:</sub>
+    <ul>
+      <li><sub>add ability to represent axes (ticks, linear/logarithmic/etc,
+        colour(?))</sub></li>
+      <li><sub>gridlines</sub></li>
+      <li><sub>line thickness</sub></li>
+      <li><sub>background colour</sub></li>
+      <li><sub>need to rationalise how RDF containers are dealt with in the
+        specification</sub></li>
+    </ul>
+  </li>
+</ul>
+<sub><br />
+</sub>
+
+<p><sub>Timeframe: dependent on implementation of current draft in PCEnv for
+testing / ironing. This work is unlikely to be implemented in PCEnv 0.7 and
+therefore unlikely to be completed by the time of the workshop.<br />
+</sub></p>
+
+<p><sub><br />
+</sub> </p>
+
+<p><sub><i><b>Simulation</b></i></sub></p>
+<ul>
+  <li><sub>See <a
+    href="../../../specifications/metadata/simulations">http://www.cellml.org/specifications/metadata/simulations</a><i><b><br
+    />
+    </b></i></sub></li>
+</ul>
+<ul>
+  <li><sub>most components of simulation metadata (as currently used by PCEnv)
+    are non-standard</sub></li>
+  <li><sub>should be standardised at some point in the future</sub></li>
+</ul>
+
+<p></p>
+
+<p><sub><br />
+</sub> </p>
+
+<p><sub>Timeframe: The current simulation spec as is (see link above,) could be
+finalised pending testing within PCEnv, although it would definitely be
+advantageous to implement it in David (Andre) Nickerson's CellMLSimulator.
+Andre would like to have CellMLSimulator implement the current simulation spec,
+but does not forsee having time for this between now and April 2009. </sub><br
+/>
+</p>
+
+<p><br />
+</p>
+
+<p></p>
+
+<p><i><b>Common annotations</b></i></p>
+
+<p>Citations:</p>
+<ul>
+  <li>See <a
+    href="https://tracker.physiomeproject.org/show_bug.cgi?id=414">Tracker Item
+    414</a><br />
+  </li>
+</ul>
+<ul>
+  <li>remove BQS, replace with DC citations</li>
+  <li> adding an URN identifier where one exists as well as the citation would
+    provide for both machine and human readable citations
+    <ul>
+      <li>e.g. MIRIAM (LSID?)</li>
+    </ul>
+  </li>
+</ul>
+Keywords:<br />
+
+<ul>
+  <li>See <a
+    href="https://tracker.physiomeproject.org/show_bug.cgi?id=1407">tracker
+    item 1407</a><br />
+  </li>
+</ul>
+<ul>
+  <li>rework keywords in metadata (currently implemented in BQS - use DC
+    citations 'subject')</li>
+  <li>serialise keywords, suggest in spec that constrained vocab be used
+    <ul>
+      <li>e.g. <a
+        href="http://www.ncbi.nlm.nih.gov/Taxonomy/taxonomyhome.html">NCBI's
+        Taxonomy Browser</a>, foundational model of anatomy</li>
+    </ul>
+  </li>
+</ul>
+Cross-referencing: <br />
+
+<ul>
+  <ul>
+    <li>to allow, for example, a modification note that says "changed value of
+      X from 1 to 2, as per [citation]', where in some cases it might also be
+      appropriate to make X a reference to the variable in question (e.g., if
+      we for some reason, wanted very detailed document histories)<br />
+      <br />
+    </li>
+  </ul>
+</ul>
+
+<p></p>
+Timeframe: DC citations is easily implemented. It would be reasonable to use a
+mixture of DC citations and MIRIAM as discussed in the tracker; MIRIAM for
+citations is also easily implemented.<br />
+<br />
+
+<ul>
+  <li><sub>model version metadata (see <a
+    href="https://tracker.physiomeproject.org/show_bug.cgi?id=1413">Tracker
+    Item 1413)</a></sub>
+    <ul>
+      <li><sub>Model version metadata must be VCS-generic and provide ad-hoc
+        'release' versioning</sub></li>
+      <li><sub>Should be somewhat informed by PMR2</sub></li>
+      <li><sub>Perhaps we could add a 'revision identifier' attribute within
+        the 'cmeta:modification' set</sub></li>
+      <li><sub><b>This is possibly redundant / a waste of time / should just be
+        implemented within PMR2</b><br />
+        </sub></li>
+    </ul>
+  </li>
+  <li><sub><i>modification history metadata should require that the
+    'contributor' DC / vCard metadata tag be embedded within a modification
+    history note<br />
+    </i></sub>
+    <ul>
+      <li><sub>(this is possible now but not required - requirements should be
+        implemented by software - a suggestion should be made within the spec
+        that this is useful)</sub></li>
+    </ul>
+  </li>
+</ul>
+<sub><br />
+</sub>
+
+<p></p>
+
+<p></p>
+
+<p><sub>Timeframe: draft of model version metadata by workshop should be
+reasonable. </sub><br />
+</p>
+
+<p><br />
+</p>
+<ul>
+  <li><i>&lt;removed&gt; curation flags (see <a
+    href="https://tracker.physiomeproject.org/show_bug.cgi?id=87">Tracker Item
+    87</a>)<br />
+    </i>
+    <ul>
+      <li><i>constrained vocabulary system for representing model curation
+        status, partially informed by MIRIAM</i></li>
+      <li><i>At this point it is looking unlikely that curation flags will be
+        included in the CellML Metadata 1.1 specification, because we would
+        like to test the system within PMR2 before we do this. At this point a
+        generalised system based on CellML Metadata is also not necessary for
+        software other than PMR2.</i></li>
+    </ul>
+  </li>
+</ul>
+
+<p></p>
+<ul>
+  <ul>
+    <li><i>Curation flags would also only be valid for a specific revision of a
+      model, so they would not be transferable to the next version. Such
+      epheremal metadata may not be worth serialising as CellML
+      Metadata.</i><i>&lt;/removed&gt;</i></li>
+  </ul>
+</ul>
+
+<p><br />
+</p>
+
+<p><i><b>Biological annotation</b></i></p>
+<ul>
+  <li>See <a
+    href="https://tracker.physiomeproject.org/show_bug.cgi?id=1408">Tracker
+    Item 1408</a> <br />
+  </li>
+  <li>Clean up this section slightly </li>
+  <li>remove cmeta:sex, cmeta:species (?)<br />
+
+    <ul>
+      <li>unnecessary to use cmeta for these annotations, should be replaced by
+        an extensible approach - could use DC:keywords, although this is a less
+        granular solution<br />
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>change 'bioentity' to 'biological annotation' (?) <br />
+
+    <ul>
+      <li>so non-entities can be annotated (this is just semantics)<br />
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p></p>
+
+<p><br />
+</p>
+
+<p>Timeframe: little to be changed. draft achievable by workshop although
+controversial.<br />
+</p>
+
+<p><br />
+</p>
+
+<p><i><b>Defining distribution / usage license of models in metadata</b></i></p>
+<ul>
+  <li>See <a
+    href="https://tracker.physiomeproject.org/show_bug.cgi?id=1422">Tracker
+    Item 1422</a><br />
+  </li>
+  <li>MIRIAM community curation standard requires this</li>
+  <li>We currently support dcterms:rights <br />
+
+    <ul>
+      <li>Since the draft Metadata 1.0 spec was written, the DC term 'license'
+        (<a
+        href="http://purl.org/dc/terms/license">http://purl.org/dc/terms/license</a>)
+        has been added under dcterms:rights, which allows identification of
+        licenses via their URI</li>
+      <li>See <a
+        href="http://www.intertwingly.net/wiki/pie/License">http://www.intertwingly.net/wiki/pie/License</a>
+        and <a
+        href="http://dublincore.org/usage/decisions/2004/2004-01.Rights-terms.shtml">http://dublincore.org/usage/decisions/2004/2004-01.Rights-terms.shtml</a><br
+        />
+      </li>
+    </ul>
+  </li>
+  <li>We should probably provide a small set of licenses to choose from rather
+    than an open ended framework</li>
+</ul>
+<br />
+Timeframe: minimal work required - draft possible by Workshop </body>
+</html>
