@@ -118,27 +118,26 @@ RDF</a></h2>
 CellML Metadata 1.1 uses the W3C's <a href="http://www.w3.org/RDF/">Resource
 Description Framework (RDF)</a> to encode descriptions of CellML elements. 
 
-<h3><a name="sec_metadata_document_rules">3.1 Rules for RDF within CellML
-Documents</a></h3>
-
-<h4><a name="sec_metadata_rules_cmeta_id">3.1.1 Proper use of the <code
-class="xa">cmeta:id</code> attribute</a></h4>
+<h3><a name="sec_metadata_rules_cmeta_id">3.1 The <code
+class="xa">cmeta:id</code> attribute</a></h3>
 <ul>
   <li>A <code class="xa">cmeta:id</code> attribute (where the <code
     class="xns">cmeta</code> prefix is mapped to the CellML Metadata namespace
     URI defined in <a href="../../../../.#sec_fundamentals_namespaces">Section
-    2.2.2</a> of the <a href="http://www.cellml.org/specifications/cellml_1.1">CellML 1.1 Specification</a>) may be defined on
-    any CellML element. A <code class="xa">cmeta:id</code> attribute may also
-    be defined on extension elements for which no attribute of type ID is
-    declared in the DTD, schema or language specification. On MathML elements,
-    the <code class="xa">mathml:id</code> attribute must be used. A <code
+    2.2.2</a> of the <a
+    href="http://www.cellml.org/specifications/cellml_1.1">CellML 1.1
+    Specification</a>) may be defined on any CellML element. A <code
+    class="xa">cmeta:id</code> attribute may also be defined on extension
+    elements for which no attribute of type ID is declared in the DTD, schema
+    or language specification. On MathML elements, the <code
+    class="xa">mathml:id</code> attribute must be used. A <code
     class="xa">cmeta:id</code> attribute must specifically not be added to
     MathML elements because a given element may only contain one attribute of
     type ID. </li>
 </ul>
 
-<h4><a name="sec_metadata_spec_rules_rdf:RDF_element">3.1.2 The <code
-class="xe">&lt;rdf:RDF&gt;</code> element</a></h4>
+<h3><a name="sec_metadata_spec_rules_rdf:RDF_element">3.2 Proper use of the
+<code class="xe">&lt;rdf:RDF&gt;</code> element within CellML documents</a></h3>
 <ol>
   <li><strong>Allowed use of the <code class="xe">&lt;rdf:RDF&gt;</code>
     element</strong> 
