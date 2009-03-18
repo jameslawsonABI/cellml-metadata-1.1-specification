@@ -113,98 +113,63 @@ framework defined by the core specification.</p>
   <li>Biological annotation</li>
 </ul>
 
-<h2><a id="sec_background" name="sec_background">2  CellML Metadata 1.1 in
+<h2><a id="sec_background" name="sec_background">3  CellML Metadata 1.1 in
 RDF</a></h2>
 CellML Metadata 1.1 uses the W3C's <a href="http://www.w3.org/RDF/">Resource
 Description Framework (RDF)</a> to encode descriptions of CellML elements. 
 
-<h3><a id="sec_what_is_rdf" name="sec_what_is_rdf">2.1  What is RDF?</a></h3>
+<h3><a name="sec_metadata_document_rules">3.1 Rules for RDF within CellML
+Documents</a></h3>
 
-<p class="text">RDF, which stands for "Resource Description Framework", is the
-W3C's recommendation for handling metadata on the web. The Resource Description
-Framework is just that: it is a framework that allows you to store descriptions
-(i.e. metadata) about resources. A resource can be literally anything. For the
-purposes of CellML, resources can be the model document, the model itself, or
-elements within the model (variables, components, connections, etc.)</p>
-
-<h3><a id="sec_rdf_advantages" name="sec_rdf_advantages">2.2  The advantages of
-using RDF</a></h3>
-
-<p class="text">RDF by itself does not allow people to store metadata. It
-merely provides a standard framework onto which various groups can hang their
-metadata vocabularies. Some benefits of having this standard framework are: </p>
+<h4><a name="sec_metadata_rules_cmeta_id">3.1.1 Proper use of the <code
+class="xa">cmeta:id</code> attribute</a></h4>
 <ul>
-  <li><strong>It provides a common <em>attribute=value</em> data model for the
-    metadata</strong>. All metadata expressed in RDF can be presented as a
-    series of attributes (i.e. properties of the resource) and their values.
-    For instance, one <em>attribute=value</em> pair for a CellML model might be
-    <code>species=Mus musculus</code>. </li>
-  <li><strong>It provides an extensible method for storing metadata of
-    increasing complexity</strong>. Some metadata properties will have simple
-    values, such as the species property shown above. Other metadata properties
-    will have complex values. In the latter case, the value of the metadata
-    property is itself considered a resource, and additional metadata
-    properties are stored about it. This is made more clear by an example.
-    Consider the case of the <code>creator</code> attribute. This could be
-    given a simple value of the creator's name, such as <code class="xeln">John
-    Doe</code>. However, it is more powerful to consider the value of the
-    creator property to be a new resource (the person identified by the name
-    "John Doe"). This allows the person's name to be stored as metadata about
-    the new resource. This allows additional metadata to be stored about the
-    person, such as the person's mailing address, phone number, etc. Most
-    importantly, we don't have to know ahead of time what sorts of metadata
-    processing software might want to store about the person. If a particular
-    application wants to store the person's favourite colour, it can do so.
-    Other applications might not recognise the meaning of the particular
-    element that stores the favourite colour, but they will be able to
-    understand that it is some sort of property about the resource (i.e.
-    person) that is the creator of the model. This allows the application to
-    handle the unknown metadata gracefully (most likely, many applications
-    would at least be able to present the <em>attribute=value</em> pair to the
-    user). </li>
-  <li><strong>It makes it possible for applications that don't know anything
-    about CellML to understand our metadata</strong>. Though not a reality yet,
-    it is part of Tim Berners-Lee's vision of a semantic web. Eventually,
-    search engine tools could become RDF capable. In that case, people would be
-    able to perform much more powerful searches for information on the web. If
-    someone wants to find all web resources created by John Doe, he/she could
-    search explicitly for resources where <code>creator=John Doe</code>,
-    instead of just searching for resources that contain the string "John Doe".
-  </li>
-  <li><strong>There are tools out there that use RDF</strong>. It is true that
-    RDF is still a fledgling technology. However, there are tools out there
-    that parse RDF and tools that actually use RDF to build databases,
-    knowledge stores, and other such things. For instance, the W3C provides <a
-    href="http://www.w3.org/RDF/Validator/">SiRPAC</a>, a Simple RDF Parser and
-    Compiler which returns a graphical representation of the RDF code it is fed
-    to aid in visualization of the <em>attribute=value</em> constructs as well
-    as validate RDF segments. See the <a
-    href="http://www.w3.org/RDF/#projects">W3C's RDF project list</a> for a
-    list of tools and projects using RDF. </li>
+  <li>A <code class="xa">cmeta:id</code> attribute (where the <code
+    class="xns">cmeta</code> prefix is mapped to the CellML Metadata namespace
+    URI defined in <a href="../../../../.#sec_fundamentals_namespaces">Section
+    2.2.2</a> of the <a href="http://www.cellml.org/specifications/cellml_1.1">CellML 1.1 Specification</a>) may be defined on
+    any CellML element. A <code class="xa">cmeta:id</code> attribute may also
+    be defined on extension elements for which no attribute of type ID is
+    declared in the DTD, schema or language specification. On MathML elements,
+    the <code class="xa">mathml:id</code> attribute must be used. A <code
+    class="xa">cmeta:id</code> attribute must specifically not be added to
+    MathML elements because a given element may only contain one attribute of
+    type ID. </li>
 </ul>
 
-<h3><a id="sec_general_structure" name="sec_general_structure">2.3  The
-Generalized Structure of RDF</a></h3>
-
-<p class="text">The <a
-href="http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/">Resource
-Description Framework (RDF): Concepts and Abstract Syntax</a> specifies a
-generalized structure. RDF's generalized structure allows many possible methods
-of storing metadata. RDF's flexible data model gives one the ability to add new
-classes of information without changing a previously specified schema; instead,
-the new classes build on the base schema. This extensibility makes RDF
-particularly appealing for use in CellML. </p>
-
-<p class="text">In order to ensure consistency of notation, the CellML
-development team has chosen one way of expressing metadata in RDF. This is the
-recommended way of implementing RDF in CellML, but it is not the only way of
-representing metadata. From here on, the <code class="xns">rdf</code> prefix
-will be used to indicate that elements and attributes are in the RDF namespace.
-</p>
+<h4><a name="sec_metadata_spec_rules_rdf:RDF_element">3.1.2 The <code
+class="xe">&lt;rdf:RDF&gt;</code> element</a></h4>
+<ol>
+  <li><strong>Allowed use of the <code class="xe">&lt;rdf:RDF&gt;</code>
+    element</strong> 
+    <ul>
+      <li>Any CellML element may contain any number of <code
+        class="xe">&lt;rdf:RDF&gt;</code> elements. Metadata may appear on any
+        CellML element and may be split across multiple <code
+        class="xe">&lt;rdf:RDF&gt;</code> elements. The recommended practice is
+        to enclose all metadata relevant to a particular resource in a single
+        <code class="xe">&lt;rdf:RDF&gt;</code> element. In this and subsequent
+        rules, the use of the <code class="xns">rdf</code> prefix indicates
+        that elements and attributes are in the RDF namespace. </li>
+      <li>The content of an <code class="xe">&lt;rdf:RDF&gt;</code> element
+        must conform to the <a
+        href="http://www.w3.org/TR/1999/REC-rdf-syntax-19990222">Resource
+        Description Framework (RDF) Model and Syntax Specification</a>
+        recommendation from the W3C. For interoperability, the abbreviated
+        syntax defined in the RDF recommendation should be avoided. However an
+        <code class="xa">rdf:parseType</code> attribute with a value of <code
+        class="xa">"</code><code class="xac">Resource</code><code
+        class="xa">"</code> can be added to non-RDF elements to create
+        anonymous resources within an <code class="xe">&lt;rdf:RDF&gt;</code>
+        element. </li>
+    </ul>
+  </li>
+</ol>
 
 <h2>4  Namespaces in CellML Metadata</h2>
 
-<p class="text">Namespace URIs and recommended prefixes are given in <a
+<p class="text">Namespace URIs used within the CellML Metadata 1.1
+Specification and their recommended prefixes are given in <a
 href="#tab_namespace_list">Table 2</a>. </p>
 <hr>
 <a name="tab_namespace_list"></a> 
@@ -264,14 +229,5 @@ href="#tab_namespace_list">Table 2</a>. </p>
 <p class="caption"><strong>Table 2</strong> The names, URIs and recommended
 prefixes of the namespaces referenced in this specification. </p>
 <hr>
-
-<h3><a name="sec_cmeta_intro">4.1  CellML Metadata</a></h3>
-
-<p class="text">A CellML Metadata namespace has been created to include all
-metadata that has not been previously defined by the four standards listed
-above. These include biology-related attributes (such as species and
-bio-entities) as well as properties we felt were missing from other standards
-(such as annotations). We recommend CellML Metadata be designated by the
-namespace prefix <code class="xns">cmeta</code>. </p>
 </body>
 </html>
