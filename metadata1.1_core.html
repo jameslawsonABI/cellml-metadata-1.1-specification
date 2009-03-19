@@ -102,8 +102,8 @@ semantic web activity. </p>
 <h2>3  CellML Metadata 1.1 Specification Structure</h2>
 
 <p>The CellML Metadata 1.1 Specification is divided into a core specification
-(this document) and a number of subspecifications which depend on the
-framework defined by the core specification.</p>
+(this document) and a number of subspecifications which depend on the framework
+defined by the core specification.</p>
 
 <p>These subspecifications are currently: </p>
 <ul>
@@ -115,11 +115,12 @@ framework defined by the core specification.</p>
 
 <h2><a id="sec_background" name="sec_background">3  CellML Metadata 1.1 in
 RDF</a></h2>
-CellML Metadata 1.1 uses the W3C's <a href="http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/">Resource
-Description Framework (RDF)</a> to describe both the semantics
-and expression of CellML models and the parts they contain. The RDF graph is
-encoded as <a href="http://www.w3.org/TR/2004/REC-rdf-syntax-grammar-20040210/">RDF/XML</a>,
-and the RDF/XML is included with the CellML model, as described below.
+CellML Metadata 1.1 uses the W3C's <a
+href="http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/">Resource
+Description Framework (RDF)</a> to describe both the semantics and expression
+of CellML models and the parts they contain. The RDF graph is encoded as <a
+href="http://www.w3.org/TR/2004/REC-rdf-syntax-grammar-20040210/">RDF/XML</a>,
+and the RDF/XML is included with the CellML model, as described below. 
 
 <h3><a name="sec_metadata_rules_cmeta_id">3.1 The <code
 class="xa">cmeta:id</code> attribute</a></h3>
@@ -148,18 +149,31 @@ class="xa">cmeta:id</code> attribute</a></h3>
       <li>Any CellML element may contain any number of <code
         class="xe">&lt;rdf:RDF&gt;</code> elements. Metadata may appear on any
         CellML element and may be split across multiple <code
-        class="xe">&lt;rdf:RDF&gt;</code> elements.
-        In this and subsequent
+        class="xe">&lt;rdf:RDF&gt;</code> elements. In this and subsequent
         rules, the use of the <code class="xns">rdf</code> prefix indicates
         that elements and attributes are in the RDF namespace. </li>
       <li>The content of an <code class="xe">&lt;rdf:RDF&gt;</code> element
         must conform to the <a
         href="http://www.w3.org/TR/2004/REC-rdf-syntax-grammar-20040210/">RDF/XML
-        Syntax Specification</a>
-        recommendation from the W3C.</li>
+        Syntax Specification</a> recommendation from the W3C.</li>
     </ul>
   </li>
 </ol>
+
+
+<pre><h1><em>N.B.</em></h1>
+We need to consider what to do with RDF within extension elements. See <a href="https://tracker.physiomeproject.org/show_bug.cgi?id=331">Tracker Item
+    331</a> - "Should RDF be allowed / required to be processed from extension
+    elements?"
+
+It seems that the preferred approach is:
+
+  "Option 2.) All standardised RDF/XML must be placed as zero or more
+    children of element information items in the CellML namespace. Non-standard
+    metadata specific to a particular extension can be placed in the extension
+    element if the specification for the extension element allows it."
+</pre>
+
 
 <h2>4  Namespaces in CellML Metadata</h2>
 
