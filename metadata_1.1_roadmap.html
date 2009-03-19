@@ -13,7 +13,7 @@
 <body>
 <h3 class="Subheading"><b>CellML Metadata Specification 1.1</b></h3>
 <b><br />
-</b>
+</b> 
 
 <p align="left"><b>Prime directives: <br />
 </b> </p>
@@ -24,7 +24,8 @@
   <li><b>Achieve final draft of Metadata 1.1 specification by 4th April 2009
     for presentation at CellML Workshop 2009</b><br />
   </li>
-  <li> The CellML Metadata 1.1 specification should provide a platform for metadata handling in PMR2.</li>
+  <li>The CellML Metadata 1.1 specification should provide a platform for
+    metadata handling in PMR2.</li>
 </ul>
 <br />
 <a href="https://tracker.physiomeproject.org/show_bug.cgi?id=1414"
@@ -33,7 +34,7 @@ target="_self">Tracker Item 1414</a><br />
 <b>Modular Specification Structure</b><br />
 
 <ul>
-  <li>proposal to split into an 'umbrella' specification and submodules
+  <li>proposal to split into an 'umbrella' specification and submodules 
     <ul>
       <li><i>graphing</i></li>
       <li><i>simulation</i></li>
@@ -47,14 +48,15 @@ target="_self">Tracker Item 1414</a><br />
   <li>Andre: "Core specification... simply says that any element can have a
     cmeta:id and that ID can be used to resolve metadata references. And that
     any element can have rdf:RDF child elements. Then all annotations are
-    defined in separate specifications."<br />
+    defined in separate specifications."</li>
+  <li>Need to work out what namespaces will be.<br />
   </li>
 </ul>
 <br />
 &lt;UNCERTAIN&gt;<br />
 <br />
 <sub><i><b>Graphing</b></i><br />
-</sub>
+</sub> 
 <ul>
   <li><sub>See http://www.cellml.org/specifications/metadata/graphs<br />
     </sub></li>
@@ -63,7 +65,7 @@ target="_self">Tracker Item 1414</a><br />
   <li><sub>current graphing metadata spec draft needs to be implemented (in
     PCEnv or Andre's tools) to be tested before it gets codified in the
     specification</sub></li>
-  <li><sub>things to add:</sub>
+  <li><sub>things to add:</sub> 
     <ul>
       <li><sub>add ability to represent axes (ticks, linear/logarithmic/etc,
         colour(?))</sub></li>
@@ -76,9 +78,11 @@ target="_self">Tracker Item 1414</a><br />
   </li>
 </ul>
 <sub><br />
-</sub>
+</sub> 
 
-<p><sub>Timeframe: Unlikely to be completed by the time of the workshop, since testing in PCEnv and other environments is required. Current draft state is reasonable, however.<br>
+<p><sub>Timeframe: Unlikely to be completed by the time of the workshop, since
+testing in PCEnv and other environments is required. Current draft state is
+reasonable, however.<br />
 </sub></p>
 
 <p><sub><br />
@@ -106,8 +110,7 @@ target="_self">Tracker Item 1414</a><br />
 finalised pending testing within PCEnv, although it would definitely be
 advantageous to implement it in David (Andre) Nickerson's CellMLSimulator.
 Andre would like to have CellMLSimulator implement the current simulation spec,
-but does not forsee having time for this before April 2009. </sub><br
-/>
+but does not forsee having time for this before April 2009. </sub><br />
 </p>
 
 <p><br />
@@ -127,8 +130,9 @@ but does not forsee having time for this before April 2009. </sub><br
 <ul>
   <li>remove BQS, replace with DC citations</li>
   <li> adding an identifier where one exists as well as the citation would
-    provide for both machine and human readable citations - reccommend this. 
-A URN could also fit in here if required, but CellML Metadata compliant software would not be required to necessarily resolve it.
+    provide for both machine and human readable citations - reccommend this. A
+    URN could also fit in here if required, but CellML Metadata compliant
+    software would not be required to necessarily resolve it. 
     <ul>
       <li>e.g. MIRIAM (LSID?)</li>
     </ul>
@@ -145,7 +149,7 @@ Keywords:<br />
 <ul>
   <li>rework keywords in metadata (currently implemented in BQS - use DC
     citations 'subject')</li>
-  <li>serialise keywords, suggest in spec that constrained vocab be used
+  <li>serialise keywords, suggest in spec that constrained vocab be used 
     <ul>
       <li>e.g. <a
         href="http://www.ncbi.nlm.nih.gov/Taxonomy/taxonomyhome.html">NCBI's
@@ -169,7 +173,7 @@ Cross-referencing: <br />
 <p></p>
 Timeframe: DC citations is easily implemented. It would be reasonable to use a
 mixture of DC citations and MIRIAM as discussed in the tracker; MIRIAM for
-citations is also easily implemented. <br /> 
+citations is also easily implemented. <br />
 Currently no known method for crossreferencing as required by Andre.<br />
 <br />
 
@@ -195,8 +199,10 @@ Currently no known method for crossreferencing as required by Andre.<br />
   </li>
 </ul>
 
-<p> Replace rdf examples with less verbose versions using identifiers, such as GO. Also give example of MIRIAM URN-based annotation.
-Make note about using structured ontologies within bioentity such as go - see <a href="http://www.w3.org/TR/REC-rdf-syntax/#geneont"></a> </p>
+<p>Replace rdf examples with less verbose versions using identifiers, such as
+GO. Also give example of MIRIAM URN-based annotation. Make note about using
+structured ontologies within bioentity such as go - see <a
+href="http://www.w3.org/TR/REC-rdf-syntax/#geneont"></a> </p>
 
 <p></p>
 
