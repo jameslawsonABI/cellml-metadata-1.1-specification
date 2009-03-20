@@ -6,6 +6,8 @@
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
   <title>CellML Metadata 1.1 - General Annotations</title>
   <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/" />
+  <link href="../../../website documentation/manual.css" rel="stylesheet"
+  type="text/css" />
 </head>
 
 <body>
@@ -92,13 +94,1253 @@ better defined than CellML Metadata. </p>
 </ul>
 
 <p></p>
+
+<h3>Contents</h3>
+<ul>
+  <li>Abstract</li>
+  <li>Status of document</li>
+  <li>Table of contents</li>
+  <li>Introduction &amp; scope</li>
+  <li>Standards used in general annotations</li>
+  <li>General annotations</li>
+  <li style="margin-left:2em;">Citations</li>
+  <li style="margin-left:2em;">Keywords</li>
+  <li style="margin-left:2em;">Model provenance</li>
+  <li style="margin-left:2em;">Modification history</li>
+  <li style="margin-left:2em;">Annotations</li>
+  <li style="margin-left:2em;">Mathematical problem type</li>
+</ul>
+
+<p></p>
 <hr />
 
 <p></p>
 
-<p></p>
+<h2>Abstract</h2>
 
 <p></p>
+
+<h2>Status of Document</h2>
+
+<p></p>
+
+<h2>Table of Contents</h2>
+
+<p></p>
+
+<h2>Introduction</h2>
+
+<p></p>
+
+<h2>Standards used in this specification</h2>
+
+<p></p>
+
+<h2>General annotations</h2>
+
+<p></p>
+
+<h3>Citations</h3>
+
+<p></p>
+
+<h3>Keywords</h3>
+
+<p></p>
+
+<h3>Model provenance</h3>
+
+<p></p>
+
+<h3>Modification history</h3>
+
+<p></p>
+
+<h3>CellML annotations</h3>
+
+<p></p>
+
+<h3>Comment</h3>
+
+<p></p>
+
+<h3>Limitation</h3>
+
+<p></p>
+
+<h3>Validation</h3>
+
+<p></p>
+
+<h3><a id="sec_dublin_core_intro" name="sec_dublin_core_intro">2.2  The Dublin
+Core Metadata Initiative</a></h3>
+
+<p class="text">Information about the Dublin Core Metadata Initiative can be
+found on the <a href="http://dublincore.org/">Dublin Core's website</a>. </p>
+
+<h4><a id="sec_what_is_dc" name="sec_what_is_dc">2.2.1  What is the Dublin
+Core?</a></h4>
+
+<p class="text">The Dublin Core is a group of metadata properties. These
+properties were identified as "common" across a large range of resources by a
+group of library science and knowledge management communities. These properties
+include attributes like creator, publisher, subject, and date. A full list is
+found in <a href="#dublin_core_elements">Table 3</a>, and their corresponding
+definitions can be found in the <a
+href="http://dublincore.org/documents/dces/">Dublin Core Metadata Element Set,
+Version 1.1: Reference Description</a>. </p>
+
+<p class="text">The Dublin Core Metadata Initiative group has also provided a
+standard set of "qualifier" elements. These elements add information to the
+basic elements. Qualifier elements either provide <em>type</em> information or
+<em>scheme</em> information. Type information classifies the basic element. For
+instance, the date element can have a type of created, modified, valid,
+available, or issued. Scheme information indicates how the content of the
+element is encoded. For instance, the date element can have a scheme of W3C-DTF
+or DCMI Period. A full list of qualifiers and their allowed values can be found
+in Table 2, and their corresponding definitions can be found in the <a
+href="http://dublincore.org/documents/dcmes-qualifiers/">Dublin Core Qualifiers
+document</a>. </p>
+
+<p class="text">It is important to note that Dublin Core does not have to be
+expressed in RDF. The Dublin Core elements are not elements in the XML sense.
+They are simply standard names and definitions for common types of metadata.
+However, the Dublin Core Metadata Initiative has released two articles that
+suggest a method for implementing an RDF representation of Dublin Core elements
+and qualifiers: <a href="http://dublincore.org/documents/dcmes-xml/">Expressing
+Simple Dublin Core in RDF/XML</a> and <a
+href="http://dublincore.org/documents/dcq-rdf-xml/">Expressing Qualified Dublin
+Core in RDF/XML</a>, respectively. These suggestions have been adopted for use
+in CellML. </p>
+
+<h4><a id="sec_dc_advantages" name="sec_dc_advantages">2.2.2  The advantages of
+using Dublin Core</a></h4>
+
+<p class="text">The Dublin Core set of elements is widely referenced, and the
+W3C designed the Resource Description Framework with the Dublin Core in mind.
+General purpose tools are more likely to understand the Dublin Core metadata
+vocabulary than any other vocabulary. Also, using the Dublin Core metadata
+vocabulary makes it obvious that certain CellML Metadata properties (such as
+model creator) map directly to metadata properties that are found in other
+fields. </p>
+
+<p class="text">Henceforth, the prefixes <code class="xns">dc</code> and <code
+class="xns">dcterms</code> will indicate that elements and attributes are in
+the Dublin Core and the Dublin Core Qualifiers namespaces, respectively. </p>
+
+<h3><a id="sec_vCard_intro" name="sec_vCard_intro">2.3  vCard</a></h3>
+
+<p class="text">At the time of writing, the only existing RDF definition of
+metadata about people is a note submitted to the W3C in February 2001 entitled
+<a href="http://www.w3.org/TR/2001/NOTE-vcard-rdf-20010222">Representing vCard
+Objects in RDF/XML</a>. (This note is the work of Renato Iannella working at
+the Distributed Systems Technology Centre at the University of Queensland and
+orginally appeared on their <a
+href="http://www.dstc.edu.au/Research/Projects/rdf/">RDF project page</a>.)
+This note's suggestions are widely used for referencing people in RDF. </p>
+
+<p class="text">As the vCard data model includes some elements that are not
+necessary for CellML Metadata, such as nickname and birthday, we will not
+require CellML processing software to recognize those elements. However, model
+authors are free to use them. That is, the use of vCard elements outside of the
+list defined in the CellML Metadata specification will not invalidate the
+metadata, but these elements may not necessarily be recognized by all CellML
+Metadata compliant processing software. </p>
+
+<p class="text">CellML Metadata compliant processing software is expected to
+recognize the following "vCard in RDF" elements that meet the information needs
+of CellML: </p>
+<ul>
+  <li><code class="xe">&lt;vCard:N&gt;</code> (the name construct), with all of
+    its subelements: 
+    <ul>
+      <li><code class="xe">&lt;vCard:Family&gt;</code>: the person's family, or
+        last name </li>
+      <li><code class="xe">&lt;vCard:Given&gt;</code>: the person's given, or
+        first name </li>
+      <li><code class="xe">&lt;vCard:Other&gt;</code>: additional names, used
+        for middle names and initials </li>
+      <li><code class="xe">&lt;vCard:Prefix&gt;</code>: honorific prefixes,
+        such as "Dr." </li>
+      <li><code class="xe">&lt;vCard:Suffix&gt;</code>: suffixes such as "III"
+        and "Jr." </li>
+    </ul>
+  </li>
+  <li><code class="xe">&lt;vCard:ADR&gt;</code> (the mailing address
+    construct), with all of its subelements: 
+    <ul>
+      <li><code class="xe">&lt;vCard:Pobox&gt;</code>: post office box </li>
+      <li><code class="xe">&lt;vCard:Street&gt;</code>: street address </li>
+      <li><code class="xe">&lt;vCard:Locality&gt;</code>: city, town, rural
+        route, etc. </li>
+      <li><code class="xe">&lt;vCard:Region&gt;</code>: state, etc. </li>
+      <li><code class="xe">&lt;vCard:Country&gt;</code>: country </li>
+      <li><code class="xe">&lt;vCard:Pcode&gt;</code>: postal code (such as the
+        American zip code) </li>
+      <li><code class="xe">&lt;vCard:Extadd&gt;</code>: extended address field.
+        This is used to include the company or institution name. </li>
+    </ul>
+  </li>
+  <li><code class="xe">&lt;vCard:EMAIL&gt;</code> (the e-mail address
+    construct) </li>
+  <li><code class="xe">&lt;vCard:TEL&gt;</code> (the telephone number
+    construct) </li>
+  <li><code class="xe">&lt;vCard:ORG&gt;</code> (the organization construct),
+    with all of its subelements: 
+    <ul>
+      <li><code class="xe">&lt;vCard:Orgname&gt;</code>: the name of the
+        organization (e.g. "The University of Auckland") </li>
+      <li><code class="xe">&lt;vCard:Orgunit&gt;</code>: the division or
+        department (e.g. "Auckland Bioengineering Institute") </li>
+    </ul>
+  </li>
+  <li><code class="xe">&lt;vCard:TITLE&gt;</code>: the person's job title </li>
+  <li><code class="xe">&lt;vCard:ROLE&gt;</code>: the person's job role </li>
+</ul>
+
+<p class="text">The <code class="xe">&lt;rdf:type&gt;</code> element is used to
+specify "type parameters" on certain vCard elements. For instance, an address
+may be typed as domestic, international, postal, parcel, home, work, or
+preferred. <a href="#tab_vcard_type_parameters">Table 1</a> lists the vCard
+properties used in CellML that have a type parameter with their possible
+values. Note that one address may be given more than one type. See <a
+href="#fig_author_example">Figure 33</a> for an example of how to use the <code
+class="xe">&lt;rdf:type&gt;</code> element in vCard. </p>
+<hr />
+<a id="tab_vcard_type_parameters" name="tab_vcard_type_parameters"></a> 
+
+<table class="center">
+  <tbody>
+    <tr>
+      <th class="left">vCard Property</th>
+      <th class="left">Type Parameter Values</th>
+    </tr>
+    <tr>
+      <td class="left">TEL</td>
+      <td class="left">home, msg, work, pref, voice, fax, cell, video, pager,
+        bbs, modem, car, isdn, pcs</td>
+    </tr>
+    <tr>
+      <td class="left">EMAIL</td>
+      <td class="left">internet, x400, pref</td>
+    </tr>
+    <tr>
+      <td class="left">ADR</td>
+      <td class="left">dom, intl, postal, parcel, home, work, pref</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="caption"><strong>Table 1</strong> The names, URIs and recommended
+prefixes of the namespaces referenced in this specification. </p>
+<hr />
+
+<p class="text">Examples throughout the rest of this specification demonstrate
+the use of vCard elements in RDF. These elements are preceded by the <code
+class="xns">vCard</code> prefix to indicate that they are in the vCard </p>
+
+<h3><a id="sec_dcmes_and_dcterms" name="sec_dcmes_and_dcterms">3.2  Dublin Core
+Elements and Qualifiers</a></h3>
+
+<p class="text"><a href="http://dublincore.org/documents/dces/"></a> and <a
+href="http://dublincore.org/documents/2000/07/11/dcmes-qualifiers/"></a> are
+listed in <a href="dublin_core_elements">Table 3</a>. </p>
+<hr />
+<a id="dc_and_dcterms_list" name="dc_and_dcterms_list"></a> 
+
+<div class="center">
+
+<table>
+  <tbody>
+    <tr>
+      <th class="left">DC Metadata Element</th>
+      <th class="left">Element Refinement(s)</th>
+      <th class="left">Element Encoding Scheme(s)</th>
+    </tr>
+    <tr>
+      <td class="left">Title</td>
+      <td class="left">Alternative</td>
+      <td class="left">-</td>
+    </tr>
+    <tr>
+      <td class="left">Creator</td>
+      <td class="left">-</td>
+      <td class="left">-</td>
+    </tr>
+    <tr>
+      <td class="left">Subject</td>
+      <td class="left">-</td>
+      <td class="left">LCSH <br />
+        MeSH <br />
+        DDC <br />
+        LCC <br />
+        UDC </td>
+    </tr>
+    <tr>
+      <td class="left">Description</td>
+      <td class="left">Table of Contents <br />
+        Abstract </td>
+      <td class="left">-</td>
+    </tr>
+    <tr>
+      <td class="left">Publisher</td>
+      <td class="left">-</td>
+      <td class="left">-</td>
+    </tr>
+    <tr>
+      <td class="left">Contributor</td>
+      <td class="left">-</td>
+      <td class="left">-</td>
+    </tr>
+    <tr>
+      <td class="left">Date</td>
+      <td class="left">Created <br />
+        Valid <br />
+        Available <br />
+        Issued <br />
+        Modified </td>
+      <td class="left">DCMI Period <br />
+        W3C-DTF </td>
+    </tr>
+    <tr>
+      <td class="left">Type</td>
+      <td class="left">-</td>
+      <td class="left">DCMI Type Vocabulary</td>
+    </tr>
+    <tr>
+      <td class="left">Format</td>
+      <td class="left">
+        <table>
+          <tbody>
+            <tr>
+              <td>Extent</td>
+            </tr>
+            <tr>
+              <td>Medium</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td class="left">
+        <table>
+          <tbody>
+            <tr>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>IMT</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="left">Identifier</td>
+      <td class="left">-</td>
+      <td class="left">URI</td>
+    </tr>
+    <tr>
+      <td class="left">Source</td>
+      <td class="left">-</td>
+      <td class="left">URI</td>
+    </tr>
+    <tr>
+      <td class="left">Language</td>
+      <td class="left">-</td>
+      <td class="left">ISO 639-2 <br />
+        RFC 1766 </td>
+    </tr>
+    <tr>
+      <td class="left">Relation</td>
+      <td class="left">Is Version Of <br />
+        Has Version <br />
+        Is Replaced By <br />
+        Replaces <br />
+        Is Required By <br />
+        Requires <br />
+        Is Part Of <br />
+        Has Part <br />
+        Is Referenced By <br />
+        References <br />
+        Is Format Of <br />
+        Has Format </td>
+      <td class="left">URI</td>
+    </tr>
+    <tr>
+      <td class="left">Rights</td>
+      <td class="left">-</td>
+      <td class="left">-</td>
+    </tr>
+    <tr>
+      <td class="left">Coverage</td>
+      <td class="left">
+        <table>
+          <tbody>
+            <tr>
+              <td>Spatial</td>
+            </tr>
+            <tr>
+              <td>Temporal</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td class="left">
+        <table>
+          <tbody>
+            <tr>
+              <td>DCMI Point <br />
+                ISO 3166 <br />
+                DCMI Box <br />
+                TGN</td>
+            </tr>
+            <tr>
+              <td>DCMI Period <br />
+                W3C-DTF</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr />
+
+<p class="text"><strong><a id="dublin_core_elements"
+name="dublin_core_elements">Table 3</a></strong> Each Dublin Core Element is
+given its own element in the Dublin Core namespace, as shown in <a
+href="#fig_dc_elements">Figure 9</a>. The CellML Metadata Specification covers
+how to use the Dublin Core Qualifiers in later sections. </p>
+<hr />
+<a id="fig_dc_elements" name="fig_dc_elements"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+    </code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+    </code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+  </code><code class="xe">&lt;rdf:Description</code><code
+class="xec"> </code><code class="xa">rdf:about="</code><code
+class="xac">#toon_times</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+    </code><code class="xe">&lt;dc:title</code><code
+class="xe">&gt;</code><code class="xec">Toonville Times</code><code
+class="xe">&lt;/dc:title&gt;</code><code class="xec"><br />
+    </code><code class="xe">&lt;dc:creator</code><code
+class="xe">&gt;</code><code class="xec">R.J. Gopher</code><code
+class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+    </code><code class="xe">&lt;dc:date</code><code class="xe">&gt;</code><code
+class="xec">2001-10-18</code><code class="xe">&lt;/dc:date&gt;</code><code
+class="xec"><br />
+  </code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br
+/>
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 9</strong> Each Dublin Core Metadata Element
+is its own element in the Dublin Core namespace.</p>
+
+<p></p>
+
+<h3><a id="sec_model_creator" name="sec_model_creator">4.1 Model
+Creator</a></h3>
+
+<p class="text">Model creator metadata stores information about the person or
+persons who coded the model into CellML. A given element can have multiple
+model creators who may need to be considered as individuals or as members of a
+group. If they are members of a group, the group may or may not need to be
+ordered. </p>
+
+<p class="text">Model creator metadata is defined using the Dublin Core creator
+element, <code class="xe">&lt;dc:creator&gt;</code>. Repeating this element for
+a given CellML element indicates that the people listed worked independently on
+the model. This definition is shown in <a href="#fig_mb_repeat_example">Figure
+10</a>. Listing multiple people in the <code
+class="xe">&lt;dc:creator&gt;</code> element using an <code
+class="xe">&lt;rdf:Bag&gt;</code> container indicates that the group of people
+worked together on the model and that they are all considered equal
+contributors. This definition is shown in <a href="#fig_mb_bag_example">Figure
+11</a>. Listing multiple people in the <code
+class="xe">&lt;dc:creator&gt;</code> element using an <code
+class="xe">&lt;rdf:Seq&gt;</code> container indicates that the group of people
+worked together on the model and that their contributions are ordered (the
+first member of the list is first author, the second member is second author,
+and so on). Metadata authors are free to use the <code
+class="xe">&lt;rdf:Alt&gt;</code> container (as long as they produce valid
+RDF). However, CellML Metadata compliant software is not required to be able to
+consistently interpret the meaning of an <code
+class="xe">&lt;rdf:Alt&gt;</code> container in this context. Note that in the
+examples shown here, the basic vCard "name" construct is used to store the name
+of the model creator. </p>
+<hr />
+<a id="fig_mb_repeat_example" name="fig_mb_repeat_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"></code><br />
+<code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:vCard="</code><code
+class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Flintstone</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Fred</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Brown</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Charlie</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Doo</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Scooby</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 10</strong> Recommended definition of model
+creator metadata in which multiple people worked independently on the model.</p>
+<hr />
+<hr />
+<a id="fig_mb_bag_example" name="fig_mb_bag_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:vCard="</code><code
+class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xe">&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;rdf:Bag</code><code class="xe">&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;rdf:li</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Flintstone</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Fred</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:li&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:li</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Brown</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Charlie</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:li&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:li</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Doo</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Scooby</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:li&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Bag&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 11</strong> Recommended definition of model
+creator metadata in which multiple people worked together on the model and all
+are considered equal contributors.</p>
+<hr />
+
+<h3><a id="sec_contributor" name="sec_contributor">4.2 Contributor</a></h3>
+
+<p class="text">Contributor metadata indicates that a person contributed to a
+resource but did not actually create it (such as an editor). </p>
+
+<p class="text">Contributor metadata is defined using the Dublin Core
+contributor element, <code class="xe">&lt;dc:contributor&gt;</code>, as shown
+in <a href="#fig_contributor_example">Figure 12</a>. Multivalued contributor
+metadata is handled exactly as multivalued model creator metadata. Simple
+repetition of the element indicates that the people contributed to the resource
+independently. The use of RDF bag (<code class="xe">&lt;rdf:Bag&gt;</code>) or
+sequence (<code class="xe">&lt;rdf:Seq&gt;</code>) containers indicates that
+the people contributed to the resource as an unordered or ordered group,
+respectively. </p>
+<hr />
+<a id="fig_contributor_example" name="fig_contributor_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:vCard="</code><code
+class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:contributor</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Flinstone</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Fred</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:contributor&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 12</strong> Recommended definition of
+contributor metadata.</p>
+<hr />
+
+<h3><a id="sec_publisher" name="sec_publisher">4.3 Publisher</a></h3>
+
+<p class="text">The publisher is the person or organisation responsible for
+providing the model, model component, or other CellML element. A given CellML
+element can have multiple publishers. </p>
+
+<p class="text">Publisher metadata is defined with the Dublin Core publisher
+element (<code class="xe">&lt;dc:publisher&gt;</code>), as shown in <a
+href="#fig_publisher_example">Figure 13</a>. Multivalued publisher metadata is
+handled exactly as multivalued model creator metadata. Simple repetition of the
+element indicates that the people or organisations publish the resource
+independently. The use of RDF bag (<code class="xe">&lt;rdf:Bag&gt;</code>) or
+sequence (<code class="xe">&lt;rdf:Seq&gt;</code>) containers indicates that
+the people or organisation published the resource as an unordered or ordered
+group, respectively. </p>
+<hr />
+<a id="fig_publisher_example" name="fig_publisher_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:publisher</code><code
+class="xe">&gt;</code><code class="xec"><br />
+University of Auckland, Bioengineering Research Group<br />
+</code><code class="xe">&lt;/dc:publisher&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 13</strong> Recommended definition of
+publisher metadata. Note that the empty <code class="xa">about</code> attribute
+indicates that this metadata refers to the CellML <em>document</em> (as opposed
+to the model or a specific element in the model).</p>
+<hr />
+
+<h3><a id="sec_copyright" name="sec_copyright">4.4 Copyright</a></h3>
+
+<p class="text">The copyright metadata refers to the copyright that protects
+the CellML document, model, model component, or other CellML element. It is
+defined using the Dublin Core rights element (<code
+class="xe">&lt;dc:rights&gt;</code>), and, therefore, a given CellML element
+can technically have multiple copyrights. However, the recommended practice is
+to include only one copyright for any given element. </p>
+
+<p class="text"><a href="#fig_copyright_example">Figure 14</a> demonstrates the
+definition of the copyright metadata. </p>
+<hr />
+<a id="fig_copyright_example" name="fig_copyright_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:rights</code><code class="xe">&gt;</code><code
+class="xec">Physiome Sciences, 2000</code><code
+class="xe">&lt;/dc:rights&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 14</strong> Recommended definition of
+copyright metadata.</p>
+<hr />
+
+<h3><a id="sec_create_date" name="sec_create_date">4.5 Creation Date</a></h3>
+
+<p class="text">The creation date is the date upon which the model or model
+part was coded into CellML. A given CellML element can have only one creation
+date. </p>
+
+<p class="text">Creation date metadata is defined using the Dublin Core date
+qualifier element, <code class="xe">&lt;dcterms:created&gt;</code>. The
+creation date is further qualified by using the Dublin Core date encoding
+scheme qualifier element, <code class="xe">&lt;dcterms:W3CDTF&gt;</code>, which
+indicates a YYYY-MM-DD format. The definition of creation date metadata is
+demonstrated in <a href="#fig_create_date_example">Figure 15</a>. </p>
+<hr />
+<a id="fig_create_date_example" name="fig_create_date_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dcterms="</code><code
+class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:created</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:W3CDTF</code><code
+class="xe">&gt;</code><code class="xec">2000-10-05</code><code
+class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 15</strong> Recommended definition of the
+creation date metadata. </p>
+<hr />
+
+<h3><a id="sec_mod_history" name="sec_mod_history">4.6 Modification
+History</a></h3>
+
+<p class="text">The modification history lists changes that have been made to
+the CellML document. Each separate alteration can be described in its own <code
+class="xe">&lt;cmeta:modification&gt;</code> element. Each modification listed
+should also include the name of the person who made the changes in a <code
+class="xe">&lt;cmeta:modifier&gt;</code> element and the date the document was
+modified in the Dublin Core date qualifier element, <code
+class="xe">&lt;dcterms:modified&gt;</code>. The definition of modification
+history metadata is demonstrated in <a href="#fig_mod_history_example">Figure
+16</a>. </p>
+<hr />
+<a id="fig_mod_history_example" name="fig_mod_history_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:cmeta="</code><code
+class="xnsc">http://www.cellml.org/metadata/1.0#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dcterms="</code><code
+class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:vCard="</code><code
+class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:modification</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
+class="xec"><br />
+Changed the equation for the sodium current to correspond with recent<br />
+changes in MathML.<br />
+</code><code class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:modifier</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">PowerPuff</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Bubbles</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:modifier&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:modified</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:W3CDTF</code><code
+class="xe">&gt;</code><code class="xec">2001-04-01</code><code
+class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dcterms:modified&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:modification&gt;</code><code class="xec"><br
+/>
+</code><code class="xe">&lt;cmeta:modification</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
+class="xec"><br />
+Added an encapsulating component for re-use capabilities.<br />
+</code><code class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:modifier</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">PowerPuff</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Buttercup</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:modifier&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:modified</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:W3CDTF</code><code
+class="xe">&gt;</code><code class="xec">2001-02-17</code><code
+class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dcterms:modified&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:modification&gt;</code><code class="xec"><br
+/>
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 16</strong> Recommended definition of the
+modification history metadata. </p>
+<hr />
+
+<h3><a id="sec_alternative_names" name="sec_alternative_names">4.7 Alternative
+Names</a></h3>
+
+<p class="text">Alternative name metadata provides human-readable names for
+CellML elements. This alternative name could be used by software whenever it
+needs to display a human-readable name. The use of this metadata allows us to
+limit the values of <code class="xa">name</code> attributes on CellML elements
+to enable efficient code generation, without worrying about whether or not the
+name will be sufficiently meaningful to human readers. </p>
+
+<p class="text">Alternative name metadata is defined with the Dublin Core title
+qualifier element, <code class="xe">&lt;dcterms:alternative&gt;</code>. One
+element may have multiple alternative names. Only one should be considered the
+preferred human-readable name. The preferred name should be stored in a <code
+class="xe">&lt;dc:title&gt;</code> element. Additional names should be stored
+in the <code class="xe">&lt;dcterms:alternative&gt;</code> element. </p>
+
+<p class="text"><a href="#fig_name_example">Figure 17</a> shows the definition
+of alternative name metadata. The element referenced by <code
+class="xa">"</code><code class="xac">#cellml_element_id</code><code
+class="xa">"</code> is given two human-readable names. The preferred one is
+"EGF-EGFR complex". </p>
+<hr />
+<a id="fig_name_example" name="fig_name_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dcterms="</code><code
+class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:title</code><code class="xe">&gt;</code><code
+class="xec">EGF-EGFR complex</code><code
+class="xe">&lt;/dc:title&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:alternative</code><code
+class="xe">&gt;</code><code class="xec">epidermal growth factor-epidermal
+growth factor <br />
+receptor complex</code><code
+class="xe">&lt;/dcterms:alternative&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 17</strong> Recommended definition of
+alternative name metadata.</p>
+
+<p></p>
+
+<h3><a id="sec_math_problem" name="sec_math_problem">4.11 Mathematical Problem
+Type</a></h3>
+
+<p class="text">The mathematical problem type is a classification of the type
+of problem encoded in the math associated with the model or model component. It
+is specified using NIST's <a href="http://gams.nist.gov/">GAMS classification
+tree</a>. </p>
+
+<p class="text">Mathematical problem type is defined using a CellML-specific
+element, <code class="xe">&lt;cmeta:GAMS&gt;</code>. Modellers are free to use
+a different controlled vocabulary for the math problem classifications by using
+a <code class="xe">&lt;cmeta:math_problem&gt;</code> element clarified by a
+nested <code class="xe">&lt;cmeta:math_problem_scheme&gt;</code>. However,
+CellML Metadata compliant software is not required to recognize any
+classification scheme other than the GAMS tree. </p>
+
+<p class="text"><a href="#fig_math_problem_example">Figure 21</a> shows the
+recommended definition of mathematical problem type metadata. </p>
+<hr />
+<a id="fig_math_problem_example" name="fig_math_problem_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:cmeta="</code><code
+class="xnsc">http://www.cellml.org/metadata/1.0#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:rdfs="</code><code
+class="xnsc">http://www.w3.org/2000/01/rdf-schema#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:GAMS</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdfs:label</code><code class="xe">&gt;</code><code
+class="xec">1st order ODE- Initial Value Problem</code><code
+class="xe">&lt;/rdfs:label&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
+class="xec">I1a</code><code class="xe">&lt;/rdf:value&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/cmeta:GAMS&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 21</strong> Recommended definition of the
+mathematical problem type metadata.</p>
+<hr />
+
+<h3><a id="sec_description" name="sec_description">4.12 Description</a></h3>
+
+<p class="text">Description metadata is a short description of the referenced
+resource. Description metadata is defined with either of the Dublin Core
+description qualifier elements, <code
+class="xe">&lt;dcterms:abstract&gt;</code> or <code
+class="xe">&lt;dcterms:tableOfContents&gt;</code>. Use of the <code
+class="xe">&lt;dcterms:abstract&gt;</code> element will most likely be more
+common in CellML Metadata. </p>
+
+<p class="text"><a href="#fig_description_example">Figure 22</a> shows how to
+define description metadata. </p>
+<hr />
+<a id="fig_description_example" name="fig_description_example"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:dcterms="</code><code
+class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:abstract</code><code
+class="xe">&gt;</code><code class="xec"><br />
+This element uses simple mass-action kinetics to describe the<br />
+A + B &lt;-&gt; C + D reaction.<br />
+</code><code class="xe">&lt;/dcterms:abstract&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 22</strong> Recommended definition of the
+Dublin Core description metadata.</p>
+<hr />
+
+<h3><a id="sec_annotations" name="sec_annotations">4.13 Annotations</a></h3>
+
+<p class="text">There are three types of annotations that are recognized by the
+CellML Metadata specification. Model authors are free to create additional
+types. However, CellML Metadata compliant software will not be required to
+recognize any annotation types except for the following three: </p>
+<ul>
+  <li><strong>comment</strong>: free-form comment of the person who coded the
+    model into CellML. </li>
+  <li><strong>limitation</strong>: brief description of the limitations/scope
+    of the content of the CellML element. </li>
+  <li><strong>validation</strong>: description of the level of validation of
+    the content of the CellML element. This may be a code. Note that validation
+    codes are unlikely to be interoperable. </li>
+</ul>
+
+<p class="text">Annotation metadata is defined using CellML-specific elements:
+<code class="xe">&lt;cmeta:comment&gt;</code>, <code
+class="xe">&lt;cmeta:limitation&gt;</code>, and <code
+class="xe">&lt;cmeta:validation&gt;</code>. If a model author wishes to use a
+different type of annotation, he/she may specify an <code
+class="xe">&lt;cmeta:annotation_type&gt;</code> within a <code
+class="xe">&lt;cmeta:annotation&gt;</code> element. </p>
+
+<p class="text">Each annotation also has creator and creation date metadata
+that refers to it. The author metadata associated with an annotation is defined
+exactly as the model creator metadata (<a href="#sec_model_creator">Section
+4.1</a>), and creation date metadata associated with an annotation is defined
+exactly as the general creation date metadata (<a
+href="#sec_create_date">Section 4.5</a>). </p>
+
+<p class="text"><a href="#fig_annot_example1">Figure 23</a> demonstrates the
+definition of comment and limitation annotations. <a
+href="#fig_annot_example2">Figure 24</a> demonstrates the definition of the
+validation annotation. </p>
+<hr />
+<a id="fig_annot_example1" name="fig_annot_example1"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:cmeta="</code><code
+class="xnsc">http://www.cellml.org/metadata/1.0#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dcterms="</code><code
+class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:vCard="</code><code
+class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:comment</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
+class="xec">This model does not include the data of Jones, et al. <br />
+about the corresponding pathway in canine.</code><code
+class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">PowerPuff</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Bubbles</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:created</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:W3CDTF</code><code
+class="xe">&gt;</code><code class="xec">2001-04-01</code><code
+class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:comment&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:limitation</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
+class="xec"><br />
+This component is only valid for temperatures above 20 degrees C.<br />
+</code><code class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Doo</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Scooby</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:created</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:W3CDTF</code><code
+class="xe">&gt;</code><code class="xec">2001-03-28</code><code
+class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:limitation&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 23</strong> Recommended definition of comment
+and limitation annotation metadata.</p>
+<hr />
+<hr />
+<a id="fig_annot_example2" name="fig_annot_example2"></a> 
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:cmeta="</code><code
+class="xnsc">http://www.cellml.org/metadata/1.0#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dcterms="</code><code
+class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:vCard="</code><code
+class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:validation</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
+class="xec">Physiome level 2</code><code
+class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Too</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Shaggy</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:created</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:W3CDTF</code><code
+class="xe">&gt;</code><code class="xec">2001-03-28</code><code
+class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:validation&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 24</strong> Recommended definition of
+validation annotation metadata.</p>
 
 <p></p>
 </body>
