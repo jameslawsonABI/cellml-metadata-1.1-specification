@@ -118,59 +118,37 @@ better defined than CellML Metadata. </p>
 
 <h2>Abstract</h2>
 
-<p></p>
+<p>This document specifies the General Annotation subspecifcation of the CellML
+Metadata 1.1 Specification. Here we introduce the recommended methods for
+descibing CellML elements with metadata about citations, keywords, model
+provenance, modification histories, mathematical problem types and freeform
+annotations. To achieve this, the standard metadata frameworks vCard and Dublin
+Core are used in conjunction with CellML-specific metadata defined within the
+<code>cmeta</code> namespace.</p>
 
 <h2>Status of Document</h2>
 
-<p></p>
+<p>This document is an unofficial draft and is under development. </p>
 
 <h2>Table of Contents</h2>
-
-<p></p>
+<ul>
+  <li>Abstract</li>
+  <li>Status of document</li>
+  <li>Table of contents</li>
+  <li>Introduction &amp; scope</li>
+  <li>Standards used in general annotations</li>
+  <li>General annotations</li>
+  <li style="margin-left:2em;">Citations</li>
+  <li style="margin-left:2em;">Keywords</li>
+  <li style="margin-left:2em;">Model provenance</li>
+  <li style="margin-left:2em;">Modification history</li>
+  <li style="margin-left:2em;">Annotations</li>
+  <li style="margin-left:2em;">Mathematical problem type</li>
+</ul>
 
 <h2>Introduction</h2>
 
-<p></p>
-
 <h2>Standards used in this specification</h2>
-
-<p></p>
-
-<h2>General annotations</h2>
-
-<p></p>
-
-<h3>Citations</h3>
-
-<p></p>
-
-<h3>Keywords</h3>
-
-<p></p>
-
-<h3>Model provenance</h3>
-
-<p></p>
-
-<h3>Modification history</h3>
-
-<p></p>
-
-<h3>CellML annotations</h3>
-
-<p></p>
-
-<h3>Comment</h3>
-
-<p></p>
-
-<h3>Limitation</h3>
-
-<p></p>
-
-<h3>Validation</h3>
-
-<p></p>
 
 <h3><a id="sec_dublin_core_intro" name="sec_dublin_core_intro">2.2  The Dublin
 Core Metadata Initiative</a></h3>
@@ -228,117 +206,6 @@ fields. </p>
 class="xns">dcterms</code> will indicate that elements and attributes are in
 the Dublin Core and the Dublin Core Qualifiers namespaces, respectively. </p>
 
-<h3><a id="sec_vCard_intro" name="sec_vCard_intro">2.3  vCard</a></h3>
-
-<p class="text">At the time of writing, the only existing RDF definition of
-metadata about people is a note submitted to the W3C in February 2001 entitled
-<a href="http://www.w3.org/TR/2001/NOTE-vcard-rdf-20010222">Representing vCard
-Objects in RDF/XML</a>. (This note is the work of Renato Iannella working at
-the Distributed Systems Technology Centre at the University of Queensland and
-orginally appeared on their <a
-href="http://www.dstc.edu.au/Research/Projects/rdf/">RDF project page</a>.)
-This note's suggestions are widely used for referencing people in RDF. </p>
-
-<p class="text">As the vCard data model includes some elements that are not
-necessary for CellML Metadata, such as nickname and birthday, we will not
-require CellML processing software to recognize those elements. However, model
-authors are free to use them. That is, the use of vCard elements outside of the
-list defined in the CellML Metadata specification will not invalidate the
-metadata, but these elements may not necessarily be recognized by all CellML
-Metadata compliant processing software. </p>
-
-<p class="text">CellML Metadata compliant processing software is expected to
-recognize the following "vCard in RDF" elements that meet the information needs
-of CellML: </p>
-<ul>
-  <li><code class="xe">&lt;vCard:N&gt;</code> (the name construct), with all of
-    its subelements: 
-    <ul>
-      <li><code class="xe">&lt;vCard:Family&gt;</code>: the person's family, or
-        last name </li>
-      <li><code class="xe">&lt;vCard:Given&gt;</code>: the person's given, or
-        first name </li>
-      <li><code class="xe">&lt;vCard:Other&gt;</code>: additional names, used
-        for middle names and initials </li>
-      <li><code class="xe">&lt;vCard:Prefix&gt;</code>: honorific prefixes,
-        such as "Dr." </li>
-      <li><code class="xe">&lt;vCard:Suffix&gt;</code>: suffixes such as "III"
-        and "Jr." </li>
-    </ul>
-  </li>
-  <li><code class="xe">&lt;vCard:ADR&gt;</code> (the mailing address
-    construct), with all of its subelements: 
-    <ul>
-      <li><code class="xe">&lt;vCard:Pobox&gt;</code>: post office box </li>
-      <li><code class="xe">&lt;vCard:Street&gt;</code>: street address </li>
-      <li><code class="xe">&lt;vCard:Locality&gt;</code>: city, town, rural
-        route, etc. </li>
-      <li><code class="xe">&lt;vCard:Region&gt;</code>: state, etc. </li>
-      <li><code class="xe">&lt;vCard:Country&gt;</code>: country </li>
-      <li><code class="xe">&lt;vCard:Pcode&gt;</code>: postal code (such as the
-        American zip code) </li>
-      <li><code class="xe">&lt;vCard:Extadd&gt;</code>: extended address field.
-        This is used to include the company or institution name. </li>
-    </ul>
-  </li>
-  <li><code class="xe">&lt;vCard:EMAIL&gt;</code> (the e-mail address
-    construct) </li>
-  <li><code class="xe">&lt;vCard:TEL&gt;</code> (the telephone number
-    construct) </li>
-  <li><code class="xe">&lt;vCard:ORG&gt;</code> (the organization construct),
-    with all of its subelements: 
-    <ul>
-      <li><code class="xe">&lt;vCard:Orgname&gt;</code>: the name of the
-        organization (e.g. "The University of Auckland") </li>
-      <li><code class="xe">&lt;vCard:Orgunit&gt;</code>: the division or
-        department (e.g. "Auckland Bioengineering Institute") </li>
-    </ul>
-  </li>
-  <li><code class="xe">&lt;vCard:TITLE&gt;</code>: the person's job title </li>
-  <li><code class="xe">&lt;vCard:ROLE&gt;</code>: the person's job role </li>
-</ul>
-
-<p class="text">The <code class="xe">&lt;rdf:type&gt;</code> element is used to
-specify "type parameters" on certain vCard elements. For instance, an address
-may be typed as domestic, international, postal, parcel, home, work, or
-preferred. <a href="#tab_vcard_type_parameters">Table 1</a> lists the vCard
-properties used in CellML that have a type parameter with their possible
-values. Note that one address may be given more than one type. See <a
-href="#fig_author_example">Figure 33</a> for an example of how to use the <code
-class="xe">&lt;rdf:type&gt;</code> element in vCard. </p>
-<hr />
-<a id="tab_vcard_type_parameters" name="tab_vcard_type_parameters"></a> 
-
-<table class="center">
-  <tbody>
-    <tr>
-      <th class="left">vCard Property</th>
-      <th class="left">Type Parameter Values</th>
-    </tr>
-    <tr>
-      <td class="left">TEL</td>
-      <td class="left">home, msg, work, pref, voice, fax, cell, video, pager,
-        bbs, modem, car, isdn, pcs</td>
-    </tr>
-    <tr>
-      <td class="left">EMAIL</td>
-      <td class="left">internet, x400, pref</td>
-    </tr>
-    <tr>
-      <td class="left">ADR</td>
-      <td class="left">dom, intl, postal, parcel, home, work, pref</td>
-    </tr>
-  </tbody>
-</table>
-
-<p class="caption"><strong>Table 1</strong> The names, URIs and recommended
-prefixes of the namespaces referenced in this specification. </p>
-<hr />
-
-<p class="text">Examples throughout the rest of this specification demonstrate
-the use of vCard elements in RDF. These elements are preceded by the <code
-class="xns">vCard</code> prefix to indicate that they are in the vCard </p>
-
 <h3><a id="sec_dcmes_and_dcterms" name="sec_dcmes_and_dcterms">3.2  Dublin Core
 Elements and Qualifiers</a></h3>
 
@@ -346,7 +213,8 @@ Elements and Qualifiers</a></h3>
 href="http://dublincore.org/documents/2000/07/11/dcmes-qualifiers/"></a> are
 listed in <a href="dublin_core_elements">Table 3</a>. </p>
 <hr />
-<a id="dc_and_dcterms_list" name="dc_and_dcterms_list"></a> 
+
+<p><a id="dc_and_dcterms_list" name="dc_and_dcterms_list"></a> </p>
 
 <div class="center">
 
@@ -513,7 +381,8 @@ given its own element in the Dublin Core namespace, as shown in <a
 href="#fig_dc_elements">Figure 9</a>. The CellML Metadata Specification covers
 how to use the Dublin Core Qualifiers in later sections. </p>
 <hr />
-<a id="fig_dc_elements" name="fig_dc_elements"></a> 
+
+<p><a id="fig_dc_elements" name="fig_dc_elements"></a> </p>
 
 <p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
 class="xec"><br />
@@ -544,6 +413,138 @@ class="xec"><br />
 is its own element in the Dublin Core namespace.</p>
 
 <p></p>
+
+<h3><a id="sec_vCard_intro" name="sec_vCard_intro">2.3  vCard</a></h3>
+
+<p class="text">At the time of writing, the only existing RDF definition of
+metadata about people is a note submitted to the W3C in February 2001 entitled
+<a href="http://www.w3.org/TR/2001/NOTE-vcard-rdf-20010222">Representing vCard
+Objects in RDF/XML</a>. (This note is the work of Renato Iannella working at
+the Distributed Systems Technology Centre at the University of Queensland and
+orginally appeared on their <a
+href="http://www.dstc.edu.au/Research/Projects/rdf/">RDF project page</a>.)
+This note's suggestions are widely used for referencing people in RDF. </p>
+
+<p class="text">As the vCard data model includes some elements that are not
+necessary for CellML Metadata, such as nickname and birthday, we will not
+require CellML processing software to recognize those elements. However, model
+authors are free to use them. That is, the use of vCard elements outside of the
+list defined in the CellML Metadata specification will not invalidate the
+metadata, but these elements may not necessarily be recognized by all CellML
+Metadata compliant processing software. </p>
+
+<p class="text">CellML Metadata compliant processing software is expected to
+recognize the following "vCard in RDF" elements that meet the information needs
+of CellML: </p>
+<ul>
+  <li><code class="xe">&lt;vCard:N&gt;</code> (the name construct), with all of
+    its subelements: 
+    <ul>
+      <li><code class="xe">&lt;vCard:Family&gt;</code>: the person's family, or
+        last name </li>
+      <li><code class="xe">&lt;vCard:Given&gt;</code>: the person's given, or
+        first name </li>
+      <li><code class="xe">&lt;vCard:Other&gt;</code>: additional names, used
+        for middle names and initials </li>
+      <li><code class="xe">&lt;vCard:Prefix&gt;</code>: honorific prefixes,
+        such as "Dr." </li>
+      <li><code class="xe">&lt;vCard:Suffix&gt;</code>: suffixes such as "III"
+        and "Jr." </li>
+    </ul>
+  </li>
+  <li><code class="xe">&lt;vCard:ADR&gt;</code> (the mailing address
+    construct), with all of its subelements: 
+    <ul>
+      <li><code class="xe">&lt;vCard:Pobox&gt;</code>: post office box </li>
+      <li><code class="xe">&lt;vCard:Street&gt;</code>: street address </li>
+      <li><code class="xe">&lt;vCard:Locality&gt;</code>: city, town, rural
+        route, etc. </li>
+      <li><code class="xe">&lt;vCard:Region&gt;</code>: state, etc. </li>
+      <li><code class="xe">&lt;vCard:Country&gt;</code>: country </li>
+      <li><code class="xe">&lt;vCard:Pcode&gt;</code>: postal code (such as the
+        American zip code) </li>
+      <li><code class="xe">&lt;vCard:Extadd&gt;</code>: extended address field.
+        This is used to include the company or institution name. </li>
+    </ul>
+  </li>
+  <li><code class="xe">&lt;vCard:EMAIL&gt;</code> (the e-mail address
+    construct) </li>
+  <li><code class="xe">&lt;vCard:TEL&gt;</code> (the telephone number
+    construct) </li>
+  <li><code class="xe">&lt;vCard:ORG&gt;</code> (the organization construct),
+    with all of its subelements: 
+    <ul>
+      <li><code class="xe">&lt;vCard:Orgname&gt;</code>: the name of the
+        organization (e.g. "The University of Auckland") </li>
+      <li><code class="xe">&lt;vCard:Orgunit&gt;</code>: the division or
+        department (e.g. "Auckland Bioengineering Institute") </li>
+    </ul>
+  </li>
+  <li><code class="xe">&lt;vCard:TITLE&gt;</code>: the person's job title </li>
+  <li><code class="xe">&lt;vCard:ROLE&gt;</code>: the person's job role </li>
+</ul>
+
+<p class="text">The <code class="xe">&lt;rdf:type&gt;</code> element is used to
+specify "type parameters" on certain vCard elements. For instance, an address
+may be typed as domestic, international, postal, parcel, home, work, or
+preferred. <a href="#tab_vcard_type_parameters">Table 1</a> lists the vCard
+properties used in CellML that have a type parameter with their possible
+values. Note that one address may be given more than one type. See <a
+href="#fig_author_example">Figure 33</a> for an example of how to use the <code
+class="xe">&lt;rdf:type&gt;</code> element in vCard. </p>
+<hr />
+
+<p><a id="tab_vcard_type_parameters" name="tab_vcard_type_parameters"></a> </p>
+
+<table class="center">
+  <tbody>
+    <tr>
+      <th class="left">vCard Property</th>
+      <th class="left">Type Parameter Values</th>
+    </tr>
+    <tr>
+      <td class="left">TEL</td>
+      <td class="left">home, msg, work, pref, voice, fax, cell, video, pager,
+        bbs, modem, car, isdn, pcs</td>
+    </tr>
+    <tr>
+      <td class="left">EMAIL</td>
+      <td class="left">internet, x400, pref</td>
+    </tr>
+    <tr>
+      <td class="left">ADR</td>
+      <td class="left">dom, intl, postal, parcel, home, work, pref</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="caption"><strong>Table 1</strong> The names, URIs and recommended
+prefixes of the namespaces referenced in this specification. </p>
+<hr />
+
+<p class="text">Examples throughout the rest of this specification demonstrate
+the use of vCard elements in RDF. These elements are preceded by the <code
+class="xns">vCard</code> prefix to indicate that they are in the vCard </p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<h2>General annotations</h2>
+
+<p></p>
+
+<h3>Citations</h3>
+
+<p></p>
+
+<h3>Keywords</h3>
+
+<p></p>
+
+<h3>Model provenance</h3>
 
 <h3><a id="sec_model_creator" name="sec_model_creator">4.1 Model
 Creator</a></h3>
@@ -576,7 +577,8 @@ class="xe">&lt;rdf:Alt&gt;</code> container in this context. Note that in the
 examples shown here, the basic vCard "name" construct is used to store the name
 of the model creator. </p>
 <hr />
-<a id="fig_mb_repeat_example" name="fig_mb_repeat_example"></a> 
+
+<p><a id="fig_mb_repeat_example" name="fig_mb_repeat_example"></a> </p>
 
 <p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
 class="xec"></code><br />
@@ -643,7 +645,8 @@ class="xec"><br />
 creator metadata in which multiple people worked independently on the model.</p>
 <hr />
 <hr />
-<a id="fig_mb_bag_example" name="fig_mb_bag_example"></a> 
+
+<p><a id="fig_mb_bag_example" name="fig_mb_bag_example"></a> </p>
 
 <p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
 class="xec"><br />
@@ -732,7 +735,8 @@ sequence (<code class="xe">&lt;rdf:Seq&gt;</code>) containers indicates that
 the people contributed to the resource as an unordered or ordered group,
 respectively. </p>
 <hr />
-<a id="fig_contributor_example" name="fig_contributor_example"></a> 
+
+<p><a id="fig_contributor_example" name="fig_contributor_example"></a> </p>
 
 <p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
 class="xec"><br />
@@ -787,7 +791,8 @@ sequence (<code class="xe">&lt;rdf:Seq&gt;</code>) containers indicates that
 the people or organisation published the resource as an unordered or ordered
 group, respectively. </p>
 <hr />
-<a id="fig_publisher_example" name="fig_publisher_example"></a> 
+
+<p><a id="fig_publisher_example" name="fig_publisher_example"></a> </p>
 
 <p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
 class="xec"><br />
@@ -826,7 +831,8 @@ to include only one copyright for any given element. </p>
 <p class="text"><a href="#fig_copyright_example">Figure 14</a> demonstrates the
 definition of the copyright metadata. </p>
 <hr />
-<a id="fig_copyright_example" name="fig_copyright_example"></a> 
+
+<p><a id="fig_copyright_example" name="fig_copyright_example"></a> </p>
 
 <p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
 class="xec"><br />
@@ -864,7 +870,8 @@ scheme qualifier element, <code class="xe">&lt;dcterms:W3CDTF&gt;</code>, which
 indicates a YYYY-MM-DD format. The definition of creation date metadata is
 demonstrated in <a href="#fig_create_date_example">Figure 15</a>. </p>
 <hr />
-<a id="fig_create_date_example" name="fig_create_date_example"></a> 
+
+<p><a id="fig_create_date_example" name="fig_create_date_example"></a> </p>
 
 <p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
 class="xec"><br />
@@ -895,7 +902,10 @@ class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
 
 <p class="caption"><strong>Figure 15</strong> Recommended definition of the
 creation date metadata. </p>
-<hr />
+
+<p></p>
+
+<h3>Modification history</h3>
 
 <h3><a id="sec_mod_history" name="sec_mod_history">4.6 Modification
 History</a></h3>
@@ -910,7 +920,8 @@ class="xe">&lt;dcterms:modified&gt;</code>. The definition of modification
 history metadata is demonstrated in <a href="#fig_mod_history_example">Figure
 16</a>. </p>
 <hr />
-<a id="fig_mod_history_example" name="fig_mod_history_example"></a> 
+
+<p><a id="fig_mod_history_example" name="fig_mod_history_example"></a> </p>
 
 <p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
 class="xec"><br />
@@ -1001,6 +1012,25 @@ class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
 
 <p class="caption"><strong>Figure 16</strong> Recommended definition of the
 modification history metadata. </p>
+
+<p></p>
+
+<h3>CellML annotations</h3>
+
+<p></p>
+
+<h3>Comment</h3>
+
+<p></p>
+
+<h3>Limitation</h3>
+
+<p></p>
+
+<h3>Validation</h3>
+
+<p></p>
+<hr />
 <hr />
 
 <h3><a id="sec_alternative_names" name="sec_alternative_names">4.7 Alternative
