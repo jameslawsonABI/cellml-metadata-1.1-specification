@@ -95,6 +95,39 @@ better defined than CellML Metadata. </p>
 
 <p></p>
 
+<h4>Citations</h4>
+
+<p>New cmeta:citations tag?</p>
+<pre>&lt;rdf:RDF<code class="xns"><br />  xmlns:dc="</code><code class="xnsc">http://purl.org/dc/elements/1.1/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:dcterms="</code><code class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:rdf="</code><code class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code class="xns">"</code><code class="xe">    
+  xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code><code class="xe"><br />  <br />  &lt;rdf:Description</code><code class="xec"> </code><code class="xa">rdf:about="</code><code class="xac">#Ten_Tusscher_2004_model</code><code class="xa">"</code><code class="xe">&gt;</code><code class="xec">
+    &lt;cmeta:citation&gt;      
+      &lt;dc:identifier&gt;
+        info:pmid/14656705
+      &lt;/dc:identifier&gt;
+      &lt;dc:creator&gt;
+        &lt;rdf:Seq&gt;
+          &lt;rdf:li&gt;Ten Tusscher, K. H.&lt;/rdf:li&gt;
+          &lt;rdf:li&gt;Noble, D.&lt;/rdf:li&gt;
+          &lt;rdf:li&gt;Noble, P. D.&lt;/rdf:li&gt;
+          &lt;rdf:li&gt;Panfilov, A. V.&lt;/rdf:li&gt;
+        &lt;/rdf:Seq&gt;
+      &lt;/dc:creator&gt;
+      &lt;dc:title&gt;
+        A model for human ventricular tissue
+      &lt;/dc:title&gt;
+      &lt;dcterms:issued&gt;
+        2004
+      &lt;/dcterms:issued&gt;
+      &lt;dcterms:bibliographicCitation&gt;
+        Am J Physiol Heart Circ Physiol. 2004 Apr;286(4):H1573-89.
+      &lt;/dcterms:bibliographicCitation&gt;
+    &lt;/cmeta:citation&gt;<br /></code><code class="xec">  </code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec">
+<br /></code>&lt;/rdf:RDF&gt;</pre>
+
+<p></p>
+
+<p>Introduces cmeta:citation tag.</p>
+
 <h3>Contents</h3>
 <ul>
   <li>Abstract</li>
@@ -414,28 +447,22 @@ is its own element in the Dublin Core namespace.</p>
 
 <p></p>
 
+<p> </p>
+
 <h3><a id="sec_vCard_intro" name="sec_vCard_intro">2.3  vCard</a></h3>
 
-<p class="text">At the time of writing, the only existing RDF definition of
-metadata about people is a note submitted to the W3C in February 2001 entitled
-<a href="http://www.w3.org/TR/2001/NOTE-vcard-rdf-20010222">Representing vCard
-Objects in RDF/XML</a>. (This note is the work of Renato Iannella working at
-the Distributed Systems Technology Centre at the University of Queensland and
-orginally appeared on their <a
-href="http://www.dstc.edu.au/Research/Projects/rdf/">RDF project page</a>.)
-This note's suggestions are widely used for referencing people in RDF. </p>
+<p>vCard is a widely supported standard for defining information about people.
+It is most commonly used to create electronic business cards, and is thus
+particularly useful for annotating CellML documents with information about
+authors, contributors etc. </p>
 
-<p class="text">As the vCard data model includes some elements that are not
-necessary for CellML Metadata, such as nickname and birthday, we will not
-require CellML processing software to recognize those elements. However, model
-authors are free to use them. That is, the use of vCard elements outside of the
-list defined in the CellML Metadata specification will not invalidate the
-metadata, but these elements may not necessarily be recognized by all CellML
-Metadata compliant processing software. </p>
-
-<p class="text">CellML Metadata compliant processing software is expected to
-recognize the following "vCard in RDF" elements that meet the information needs
-of CellML: </p>
+<p>As the vCard data model includes some elements that are not necessary for
+CellML Metadata, such as nickname and birthday, the use of vCard elements
+outside of the list defined in the CellML Metadata 1.1 specification will not
+invalidate the metadata, but these elements may not necessarily be recognized
+by all CellML Metadata compliant processing software. CellML Metadata compliant
+processing software is expected to recognize the following "vCard in RDF"
+elements that meet the information needs of CellML: </p>
 <ul>
   <li><code class="xe">&lt;vCard:N&gt;</code> (the name construct), with all of
     its subelements: 
@@ -483,18 +510,16 @@ of CellML: </p>
   <li><code class="xe">&lt;vCard:TITLE&gt;</code>: the person's job title </li>
   <li><code class="xe">&lt;vCard:ROLE&gt;</code>: the person's job role </li>
 </ul>
-
-<p class="text">The <code class="xe">&lt;rdf:type&gt;</code> element is used to
-specify "type parameters" on certain vCard elements. For instance, an address
-may be typed as domestic, international, postal, parcel, home, work, or
-preferred. <a href="#tab_vcard_type_parameters">Table 1</a> lists the vCard
-properties used in CellML that have a type parameter with their possible
-values. Note that one address may be given more than one type. See <a
+The <code class="xe">&lt;rdf:type&gt;</code> element is used to specify "type
+parameters" on certain vCard elements. For instance, an address may be typed as
+domestic, international, postal, parcel, home, work, or preferred. <a
+href="#tab_vcard_type_parameters">Table 1</a> lists the vCard properties used
+in CellML that have a type parameter with their possible values. Note that one
+address may be given more than one type. See <a
 href="#fig_author_example">Figure 33</a> for an example of how to use the <code
-class="xe">&lt;rdf:type&gt;</code> element in vCard. </p>
+class="xe">&lt;rdf:type&gt;</code> element in vCard. 
 <hr />
-
-<p><a id="tab_vcard_type_parameters" name="tab_vcard_type_parameters"></a> </p>
+<a id="tab_vcard_type_parameters" name="tab_vcard_type_parameters"></a> 
 
 <table class="center">
   <tbody>
@@ -519,18 +544,11 @@ class="xe">&lt;rdf:type&gt;</code> element in vCard. </p>
 </table>
 
 <p class="caption"><strong>Table 1</strong> The names, URIs and recommended
-prefixes of the namespaces referenced in this specification. </p>
+prefixes of the namespaces referenced in this specification.</p>
 <hr />
-
-<p class="text">Examples throughout the rest of this specification demonstrate
-the use of vCard elements in RDF. These elements are preceded by the <code
-class="xns">vCard</code> prefix to indicate that they are in the vCard </p>
-
-<p></p>
-
-<p></p>
-
-<p></p>
+Examples throughout the rest of this specification demonstrate the use of vCard
+elements in RDF. These elements are preceded by the <code
+class="xns">vCard</code> prefix to indicate that they are in the vCard 
 
 <h2>General annotations</h2>
 
@@ -1017,6 +1035,196 @@ modification history metadata. </p>
 
 <h3>CellML annotations</h3>
 
+<h3><a id="sec_annotations" name="sec_annotations">4.13 Annotations</a></h3>
+
+<p class="text">There are three types of annotations that are recognized by the
+CellML Metadata specification. Model authors are free to create additional
+types. However, CellML Metadata compliant software will not be required to
+recognize any annotation types except for the following three: </p>
+<ul>
+  <li><strong>comment</strong>: free-form comment of the person who coded the
+    model into CellML. </li>
+  <li><strong>limitation</strong>: brief description of the limitations/scope
+    of the content of the CellML element. </li>
+  <li><strong>validation</strong>: description of the level of validation of
+    the content of the CellML element. This may be a code. Note that validation
+    codes are unlikely to be interoperable. </li>
+</ul>
+
+<p class="text">Annotation metadata is defined using CellML-specific elements:
+<code class="xe">&lt;cmeta:comment&gt;</code>, <code
+class="xe">&lt;cmeta:limitation&gt;</code>, and <code
+class="xe">&lt;cmeta:validation&gt;</code>. If a model author wishes to use a
+different type of annotation, he/she may specify an <code
+class="xe">&lt;cmeta:annotation_type&gt;</code> within a <code
+class="xe">&lt;cmeta:annotation&gt;</code> element. </p>
+
+<p class="text">Each annotation also has creator and creation date metadata
+that refers to it. The author metadata associated with an annotation is defined
+exactly as the model creator metadata (<a href="#sec_model_creator">Section
+4.1</a>), and creation date metadata associated with an annotation is defined
+exactly as the general creation date metadata (<a
+href="#sec_create_date">Section 4.5</a>). </p>
+
+<p class="text"><a href="#fig_annot_example1">Figure 23</a> demonstrates the
+definition of comment and limitation annotations. <a
+href="#fig_annot_example2">Figure 24</a> demonstrates the definition of the
+validation annotation. </p>
+<hr />
+
+<p><a id="fig_annot_example1" name="fig_annot_example1"></a> </p>
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:cmeta="</code><code
+class="xnsc">http://www.cellml.org/metadata/1.0#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dcterms="</code><code
+class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:vCard="</code><code
+class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:comment</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
+class="xec">This model does not include the data of Jones, et al. <br />
+about the corresponding pathway in canine.</code><code
+class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">PowerPuff</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Bubbles</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:created</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:W3CDTF</code><code
+class="xe">&gt;</code><code class="xec">2001-04-01</code><code
+class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:comment&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:limitation</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
+class="xec"><br />
+This component is only valid for temperatures above 20 degrees C.<br />
+</code><code class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Doo</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Scooby</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:created</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:W3CDTF</code><code
+class="xe">&gt;</code><code class="xec">2001-03-28</code><code
+class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:limitation&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 23</strong> Recommended definition of comment
+and limitation annotation metadata.</p>
+<hr />
+<hr />
+
+<p><a id="fig_annot_example2" name="fig_annot_example2"></a> </p>
+
+<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:cmeta="</code><code
+class="xnsc">http://www.cellml.org/metadata/1.0#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dc="</code><code
+class="xnsc">http://purl.org/dc/elements/1.1/</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:dcterms="</code><code
+class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
+class="xec"><br />
+</code><code class="xns">xmlns:rdf="</code><code
+class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
+class="xns">"</code><code class="xec"><br />
+</code><code class="xns">xmlns:vCard="</code><code
+class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
+class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
+<br />
+</code><code class="xe">&lt;rdf:Description</code><code
+class="xec"></code><code class="xa">rdf:about="</code><code
+class="xac">#cellml_element_id</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;cmeta:validation</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
+class="xec">Physiome level 2</code><code
+class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Too</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
+class="xec">Shaggy</code><code class="xe">&lt;/vCard:Given&gt;</code><code
+class="xec"><br />
+</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:created</code><code
+class="xec"></code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;dcterms:W3CDTF</code><code
+class="xe">&gt;</code><code class="xec">2001-03-28</code><code
+class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/cmeta:validation&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
+</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
+
+<p class="caption"><strong>Figure 24</strong> Recommended definition of
+validation annotation metadata.</p>
+
 <p></p>
 
 <h3>Comment</h3>
@@ -1183,194 +1391,6 @@ A + B &lt;-&gt; C + D reaction.<br />
 <p class="caption"><strong>Figure 22</strong> Recommended definition of the
 Dublin Core description metadata.</p>
 <hr />
-
-<h3><a id="sec_annotations" name="sec_annotations">4.13 Annotations</a></h3>
-
-<p class="text">There are three types of annotations that are recognized by the
-CellML Metadata specification. Model authors are free to create additional
-types. However, CellML Metadata compliant software will not be required to
-recognize any annotation types except for the following three: </p>
-<ul>
-  <li><strong>comment</strong>: free-form comment of the person who coded the
-    model into CellML. </li>
-  <li><strong>limitation</strong>: brief description of the limitations/scope
-    of the content of the CellML element. </li>
-  <li><strong>validation</strong>: description of the level of validation of
-    the content of the CellML element. This may be a code. Note that validation
-    codes are unlikely to be interoperable. </li>
-</ul>
-
-<p class="text">Annotation metadata is defined using CellML-specific elements:
-<code class="xe">&lt;cmeta:comment&gt;</code>, <code
-class="xe">&lt;cmeta:limitation&gt;</code>, and <code
-class="xe">&lt;cmeta:validation&gt;</code>. If a model author wishes to use a
-different type of annotation, he/she may specify an <code
-class="xe">&lt;cmeta:annotation_type&gt;</code> within a <code
-class="xe">&lt;cmeta:annotation&gt;</code> element. </p>
-
-<p class="text">Each annotation also has creator and creation date metadata
-that refers to it. The author metadata associated with an annotation is defined
-exactly as the model creator metadata (<a href="#sec_model_creator">Section
-4.1</a>), and creation date metadata associated with an annotation is defined
-exactly as the general creation date metadata (<a
-href="#sec_create_date">Section 4.5</a>). </p>
-
-<p class="text"><a href="#fig_annot_example1">Figure 23</a> demonstrates the
-definition of comment and limitation annotations. <a
-href="#fig_annot_example2">Figure 24</a> demonstrates the definition of the
-validation annotation. </p>
-<hr />
-<a id="fig_annot_example1" name="fig_annot_example1"></a> 
-
-<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
-class="xec"><br />
-</code><code class="xns">xmlns:cmeta="</code><code
-class="xnsc">http://www.cellml.org/metadata/1.0#</code><code
-class="xns">"</code><code class="xec"><br />
-</code><code class="xns">xmlns:dc="</code><code
-class="xnsc">http://purl.org/dc/elements/1.1/</code><code
-class="xns">"</code><code class="xec"><br />
-</code><code class="xns">xmlns:dcterms="</code><code
-class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
-class="xec"><br />
-</code><code class="xns">xmlns:rdf="</code><code
-class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
-class="xns">"</code><code class="xec"><br />
-</code><code class="xns">xmlns:vCard="</code><code
-class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
-class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
-<br />
-</code><code class="xe">&lt;rdf:Description</code><code
-class="xec"></code><code class="xa">rdf:about="</code><code
-class="xac">#cellml_element_id</code><code class="xa">"</code><code
-class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;cmeta:comment</code><code class="xec"></code><code
-class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
-class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
-class="xec">This model does not include the data of Jones, et al. <br />
-about the corresponding pathway in canine.</code><code
-class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
-class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
-class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
-class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
-class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;vCard:Family</code><code
-class="xe">&gt;</code><code class="xec">PowerPuff</code><code
-class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
-class="xec">Bubbles</code><code class="xe">&lt;/vCard:Given&gt;</code><code
-class="xec"><br />
-</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;dcterms:created</code><code
-class="xec"></code><code class="xa">rdf:parseType="</code><code
-class="xac">Resource</code><code class="xa">"</code><code
-class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;dcterms:W3CDTF</code><code
-class="xe">&gt;</code><code class="xec">2001-04-01</code><code
-class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/cmeta:comment&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;cmeta:limitation</code><code
-class="xec"></code><code class="xa">rdf:parseType="</code><code
-class="xac">Resource</code><code class="xa">"</code><code
-class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
-class="xec"><br />
-This component is only valid for temperatures above 20 degrees C.<br />
-</code><code class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
-class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
-class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
-class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
-class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;vCard:Family</code><code
-class="xe">&gt;</code><code class="xec">Doo</code><code
-class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
-class="xec">Scooby</code><code class="xe">&lt;/vCard:Given&gt;</code><code
-class="xec"><br />
-</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;dcterms:created</code><code
-class="xec"></code><code class="xa">rdf:parseType="</code><code
-class="xac">Resource</code><code class="xa">"</code><code
-class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;dcterms:W3CDTF</code><code
-class="xe">&gt;</code><code class="xec">2001-03-28</code><code
-class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/cmeta:limitation&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
-
-<p class="caption"><strong>Figure 23</strong> Recommended definition of comment
-and limitation annotation metadata.</p>
-<hr />
-<hr />
-<a id="fig_annot_example2" name="fig_annot_example2"></a> 
-
-<p class="embedded-xml"><code class="xe">&lt;rdf:RDF</code><code
-class="xec"><br />
-</code><code class="xns">xmlns:cmeta="</code><code
-class="xnsc">http://www.cellml.org/metadata/1.0#</code><code
-class="xns">"</code><code class="xec"><br />
-</code><code class="xns">xmlns:dc="</code><code
-class="xnsc">http://purl.org/dc/elements/1.1/</code><code
-class="xns">"</code><code class="xec"><br />
-</code><code class="xns">xmlns:dcterms="</code><code
-class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code
-class="xec"><br />
-</code><code class="xns">xmlns:rdf="</code><code
-class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code
-class="xns">"</code><code class="xec"><br />
-</code><code class="xns">xmlns:vCard="</code><code
-class="xnsc">http://www.w3.org/2001/vcard-rdf/3.0#</code><code
-class="xns">"</code><code class="xe">&gt;</code><code class="xec"><br />
-<br />
-</code><code class="xe">&lt;rdf:Description</code><code
-class="xec"></code><code class="xa">rdf:about="</code><code
-class="xac">#cellml_element_id</code><code class="xa">"</code><code
-class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;cmeta:validation</code><code
-class="xec"></code><code class="xa">rdf:parseType="</code><code
-class="xac">Resource</code><code class="xa">"</code><code
-class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;rdf:value</code><code class="xe">&gt;</code><code
-class="xec">Physiome level 2</code><code
-class="xe">&lt;/rdf:value&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;dc:creator</code><code class="xec"></code><code
-class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
-class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;vCard:N</code><code class="xec"></code><code
-class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
-class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;vCard:Family</code><code
-class="xe">&gt;</code><code class="xec">Too</code><code
-class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code
-class="xec">Shaggy</code><code class="xe">&lt;/vCard:Given&gt;</code><code
-class="xec"><br />
-</code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/dc:creator&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;dcterms:created</code><code
-class="xec"></code><code class="xa">rdf:parseType="</code><code
-class="xac">Resource</code><code class="xa">"</code><code
-class="xe">&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;dcterms:W3CDTF</code><code
-class="xe">&gt;</code><code class="xec">2001-03-28</code><code
-class="xe">&lt;/dcterms:W3CDTF&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/dcterms:created&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/cmeta:validation&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br />
-</code><code class="xe">&lt;/rdf:RDF&gt;</code></p>
-
-<p class="caption"><strong>Figure 24</strong> Recommended definition of
-validation annotation metadata.</p>
 
 <p></p>
 </body>
