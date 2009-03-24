@@ -44,9 +44,10 @@ metadata namespaces</em></p>
 
 <p>We should use less examples and make them more meaningful - specific to
 CellML, that is.</p>
-E.g. for DC, we could have an example citation which combines the current
-examples (such as publisher, contributor etc. etc.) If people want to learn how
-to use DC, that's not really our prerogative, they should go to the DC site. 
+E.g. for DC, we could have an` example model builder metadata which combines
+the current examples (such as publisher, contributor etc. etc.) If people want
+to learn how to use DC, that's not really our prerogative, they should go to
+the DC site. 
 
 <p>Similarly, I don' t plan to include any of the RDF examples or explanation
 from the 1.0 spec since that spec was written at a time when RDF (and
@@ -60,6 +61,40 @@ better defined than CellML Metadata. </p>
   <li>contributor (important in PMR2)</li>
   <li>institution (* - use dc:publisher + vcard as in model repository)</li>
 </ul>
+<pre>&lt;rdf:RDF  
+  xmlns:dc="<code class="xnsc">http://purl.org/dc/elements/1.1/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:dcterms="</code><code class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:rdf="</code><code class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code class="xns">"
+  </code><code class="xe">xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code>
+
+  &lt;rdf:Description rdf:about="#some_CellML_element"&gt;
+    &lt;dc:creator rdf:parseType="Resource"&gt;
+      &lt;vCard:N rdf:parseType="Resource"&gt;
+        &lt;vCard:Family&gt;
+          Lloyd
+        &lt;/vCard:Family&gt;
+        &lt;vCard:Given&gt;
+          Catherine
+        &lt;/vCard:Given&gt;
+        &lt;vCard:Other&gt;
+          May
+        &lt;/vCard:Other&gt;
+      &lt;/vCard:N&gt;
+      &lt;vCard:EMAIL rdf:parseType="Resource"&gt;
+        &lt;rdf:value&gt; 
+          c.lloyd@auckland.ac.nz
+        &lt;/rdf:value&gt;
+      &lt;/vCard:EMAIL&gt;
+      &lt;vCard:ORG rdf:parseType="Resource"&gt;
+        &lt;vCard:Orgname&gt;
+          The University of Auckland
+        &lt;/vCard:Orgname&gt;
+        &lt;vCard:Orgunit&gt;
+          The Bioengineering Research Group
+        &lt;/vCard:Orgunit&gt;
+      &lt;/vCard:ORG&gt;
+    &lt;/dc:creator&gt;
+  &lt;/rdf:Description&gt;
+
+&lt;/rdf:RDF&gt;</pre>
 
 <h4>Creation date</h4>
 <ul>
@@ -90,7 +125,7 @@ better defined than CellML Metadata. </p>
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"</code><code class="xe">    
   xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code><br />
 
-  &lt;rdf:Description&gt;
+   &lt;rdf:Description rdf:about="#some_CellML_element"&gt;
     &lt;dc:subject&gt;
       &lt;dcterms:MESH&gt;
         &lt;rdf:value&gt;D08.586.682.075.400&lt;/rdf:value&gt;
@@ -149,7 +184,8 @@ that...</p>
 
 <p></p>
 <pre>&lt;rdf:RDF<code class="xns"><br />  xmlns:dc="</code><code class="xnsc">http://purl.org/dc/elements/1.1/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:dcterms="</code><code class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:rdf="</code><code class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code class="xns">"</code><code class="xe">    
-  xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code><code class="xe"><br />  <br />  &lt;rdf:Description</code><code class="xec"> </code><code class="xa">rdf:about="</code><code class="xac">#Ten_Tusscher_2004_model</code><code class="xa">"</code><code class="xe">&gt;</code><code class="xec">    &lt;cmeta:citation&gt;      
+  xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code><code class="xe"><br />  <br />  &lt;rdf:Description</code><code class="xec"> </code><code class="xa">rdf:about="</code><code class="xac">#Ten_Tusscher_2004_model</code><code class="xa">"</code><code class="xe">&gt;</code><code class="xec">    
+    &lt;cmeta:citation&gt;      
       &lt;dc:identifier&gt;
         info:pmid/14656705
       &lt;/dc:identifier&gt;
@@ -174,7 +210,10 @@ that...</p>
 
 <p></p>
 
-<p>Introduces cmeta:citation tag.</p>
+<p>Introduces cmeta:citation tag</p>
+
+<p>- mention that URNs can be used within &lt;identifier&gt;, suggest OpenID
+and MIRIAM.</p>
 
 <h3>Contents</h3>
 <ul>
