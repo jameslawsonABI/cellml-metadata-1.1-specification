@@ -85,8 +85,26 @@ better defined than CellML Metadata. </p>
   <li>use DC:subject</li>
   <li>suggest some controlled vocabularies</li>
 </ul>
+<pre>&lt;rdf:RDF  
+  xmlns:dc="<code class="xnsc">http://purl.org/dc/elements/1.1/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:dcterms="</code><code class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:rdf="</code><code class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code class="xns">"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"</code><code class="xe">    
+  xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code><br />
+
+  &lt;rdf:Description&gt;
+    &lt;dc:subject&gt;
+      &lt;dcterms:MESH&gt;
+        &lt;rdf:value&gt;D08.586.682.075.400&lt;/rdf:value&gt;
+        &lt;rdfs:label&gt;Formate Dehydrogenase&lt;/rdfs:label&gt;
+      &lt;/dcterms:MESH&gt;
+    &lt;/dc:subject&gt;
+  &lt;/rdf:Description&gt;
+
+&lt;/rdf:RDF&gt;</pre>
 
 <p></p>
+
+<p>See DC vocabulary encoding terms:
+http://www.dublincore.org/documents/dcmi-terms/#H4</p>
 
 <h4>Annotations</h4>
 <ul>
@@ -99,8 +117,7 @@ better defined than CellML Metadata. </p>
 
 <p>New cmeta:citations tag?</p>
 <pre>&lt;rdf:RDF<code class="xns"><br />  xmlns:dc="</code><code class="xnsc">http://purl.org/dc/elements/1.1/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:dcterms="</code><code class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:rdf="</code><code class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code class="xns">"</code><code class="xe">    
-  xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code><code class="xe"><br />  <br />  &lt;rdf:Description</code><code class="xec"> </code><code class="xa">rdf:about="</code><code class="xac">#Ten_Tusscher_2004_model</code><code class="xa">"</code><code class="xe">&gt;</code><code class="xec">
-    &lt;cmeta:citation&gt;      
+  xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code><code class="xe"><br />  <br />  &lt;rdf:Description</code><code class="xec"> </code><code class="xa">rdf:about="</code><code class="xac">#Ten_Tusscher_2004_model</code><code class="xa">"</code><code class="xe">&gt;</code><code class="xec">    &lt;cmeta:citation&gt;      
       &lt;dc:identifier&gt;
         info:pmid/14656705
       &lt;/dc:identifier&gt;
@@ -121,8 +138,7 @@ better defined than CellML Metadata. </p>
       &lt;dcterms:bibliographicCitation&gt;
         Am J Physiol Heart Circ Physiol. 2004 Apr;286(4):H1573-89.
       &lt;/dcterms:bibliographicCitation&gt;
-    &lt;/cmeta:citation&gt;<br /></code><code class="xec">  </code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec">
-<br /></code>&lt;/rdf:RDF&gt;</pre>
+    &lt;/cmeta:citation&gt;<br /></code><code class="xec">  </code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br /></code>&lt;/rdf:RDF&gt;</pre>
 
 <p></p>
 
@@ -447,7 +463,7 @@ is its own element in the Dublin Core namespace.</p>
 
 <p></p>
 
-<p> </p>
+<p></p>
 
 <h3><a id="sec_vCard_intro" name="sec_vCard_intro">2.3  vCard</a></h3>
 
