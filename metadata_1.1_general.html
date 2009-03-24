@@ -106,6 +106,38 @@ better defined than CellML Metadata. </p>
 <p>See DC vocabulary encoding terms:
 http://www.dublincore.org/documents/dcmi-terms/#H4</p>
 
+<p>Suggested controlled vocabularies:</p>
+
+<p>- MeSH</p>
+
+<p>- LCC</p>
+
+<p>- LCSH</p>
+
+<p>- DDC</p>
+
+<p>- NLM</p>
+
+<p>- etc.</p>
+
+<p></p>
+<pre>&lt;rdf:RDF 
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcterms="http://purl.org/dc/terms/"&gt;
+
+    &lt;rdf:Description rdf:about="http://example.org/123"&gt;
+      &lt;dcterms:subject&gt;
+        cell biology
+      &lt;/dcterms:title&gt;
+    &lt;/rdf:Description&gt;
+
+&lt;/rdf:RDF&gt;</pre>
+
+<p></p>
+
+<p>If you're just going to use a literal. But we'd rather you tried harder than
+that...</p>
+
 <h4>Annotations</h4>
 <ul>
   <li>keep as is</li>
@@ -115,7 +147,7 @@ http://www.dublincore.org/documents/dcmi-terms/#H4</p>
 
 <h4>Citations</h4>
 
-<p>New cmeta:citations tag?</p>
+<p></p>
 <pre>&lt;rdf:RDF<code class="xns"><br />  xmlns:dc="</code><code class="xnsc">http://purl.org/dc/elements/1.1/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:dcterms="</code><code class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:rdf="</code><code class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code class="xns">"</code><code class="xe">    
   xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code><code class="xe"><br />  <br />  &lt;rdf:Description</code><code class="xec"> </code><code class="xa">rdf:about="</code><code class="xac">#Ten_Tusscher_2004_model</code><code class="xa">"</code><code class="xe">&gt;</code><code class="xec">    &lt;cmeta:citation&gt;      
       &lt;dc:identifier&gt;
