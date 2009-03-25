@@ -66,6 +66,7 @@ better defined than CellML Metadata. </p>
   </code><code class="xe">xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code>
 
   &lt;rdf:Description rdf:about="#some_CellML_element"&gt;
+
     &lt;dc:creator rdf:parseType="Resource"&gt;
       &lt;vCard:N rdf:parseType="Resource"&gt;
         &lt;vCard:Family&gt;
@@ -92,9 +93,54 @@ better defined than CellML Metadata. </p>
         &lt;/vCard:Orgunit&gt;
       &lt;/vCard:ORG&gt;
     &lt;/dc:creator&gt;
+
+    <code class="xe">&lt;dc:publisher</code><code class="xe">&gt;</code><code class="xec"><br />      University of Auckland, 
+      Bioengineering Research Group<br />    </code>&lt;/dc:publisher&gt;
+
+    <code class="xe">&lt;dc:contributor</code><code class="xec"> </code><code class="xa">rdf:parseType="</code><code class="xac">Resource</code><code class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />      </code><code class="xe">&lt;vCard:N</code><code class="xec"> </code><code class="xa">rdf:parseType="</code><code class="xac">Resource</code><code class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />        </code><code class="xe">&lt;vCard:Family</code><code class="xe">&gt;</code><code class="xec">Flinstone</code><code class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />        </code><code class="xe">&lt;vCard:Given</code><code class="xe">&gt;</code><code class="xec">Fred</code><code class="xe">&lt;/vCard:Given&gt;</code><code class="xec"><br />      </code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />    </code><code class="xe">&lt;/dc:contributor&gt;</code><br />
+
   &lt;/rdf:Description&gt;
 
+
+
+
 &lt;/rdf:RDF&gt;</pre>
+
+<p></p>
+
+<p>  <code class="xe">&lt;rdf:Description</code><code class="xec"> </code><code
+class="xa">rdf:about="</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+    </code><code class="xe">&lt;dc:publisher</code><code
+class="xe">&gt;</code><code class="xec"><br />
+      University of Auckland, Bioengineering Research Group<br />
+    </code><code class="xe">&lt;/dc:publisher&gt;</code><code class="xec"><br />
+  </code><code class="xe">&lt;/rdf:Description&gt;</code></p>
+
+<p></p>
+
+<p>  <code class="xe">&lt;rdf:Description</code><code class="xec"> </code><code
+class="xa">rdf:about="</code><code class="xac">#cellml_element_id</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+    </code><code class="xe">&lt;dc:contributor</code><code
+class="xec"> </code><code class="xa">rdf:parseType="</code><code
+class="xac">Resource</code><code class="xa">"</code><code
+class="xe">&gt;</code><code class="xec"><br />
+      </code><code class="xe">&lt;vCard:N</code><code class="xec"> </code><code
+class="xa">rdf:parseType="</code><code class="xac">Resource</code><code
+class="xa">"</code><code class="xe">&gt;</code><code class="xec"><br />
+        </code><code class="xe">&lt;vCard:Family</code><code
+class="xe">&gt;</code><code class="xec">Flinstone</code><code
+class="xe">&lt;/vCard:Family&gt;</code><code class="xec"><br />
+        </code><code class="xe">&lt;vCard:Given</code><code
+class="xe">&gt;</code><code class="xec">Fred</code><code
+class="xe">&lt;/vCard:Given&gt;</code><code class="xec"><br />
+      </code><code class="xe">&lt;/vCard:N&gt;</code><code class="xec"><br />
+    </code><code class="xe">&lt;/dc:contributor&gt;</code><code class="xec"><br
+/>
+  </code><code class="xe">&lt;/rdf:Description&gt;</code><code class="xec"><br
+/>
+</code></p>
 
 <h4>Creation date</h4>
 <ul>
@@ -135,6 +181,10 @@ better defined than CellML Metadata. </p>
   &lt;/rdf:Description&gt;
 
 &lt;/rdf:RDF&gt;</pre>
+
+<p></p>
+
+<p></p>
 
 <p></p>
 
@@ -229,6 +279,7 @@ and MIRIAM.</p>
   <li style="margin-left:2em;">Modification history</li>
   <li style="margin-left:2em;">Annotations</li>
   <li style="margin-left:2em;">Mathematical problem type</li>
+  <li>Suggested mimimum metadata</li>
 </ul>
 
 <p></p>
@@ -647,9 +698,70 @@ class="xns">vCard</code> prefix to indicate that they are in the vCard
 
 <h3>Keywords</h3>
 
+<p>CellML elements may be annotated with keywords using the
+<code>dc:subject</code> tag. We suggest that keywords be derived from an
+appropriate constrained vocabulary, such as MeSH (Medical Subject Headings,) or
+LCSH (Library of Congress Subject Headings.) Dublin Core defines vocabulary
+encoding terms for this purpose -
+http://www.dublincore.org/documents/dcmi-terms/#H4 .</p>
+<pre>&lt;rdf:RDF  
+  xmlns:dc="<code class="xnsc">http://purl.org/dc/elements/1.1/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:dcterms="</code><code class="xnsc">http://purl.org/dc/terms/</code><code class="xns">"</code><code class="xec"><br />  </code><code class="xns">xmlns:rdf="</code><code class="xnsc">http://www.w3.org/1999/02/22-rdf-syntax-ns#</code><code class="xns">"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"</code><code class="xe">    
+  xmlns:cmeta="http://www.cellml.org/metadata/1.0#"&gt;</code><br />
+
+   &lt;rdf:Description rdf:about="#some_CellML_element"&gt;
+    &lt;dc:subject&gt;
+      &lt;dcterms:MESH&gt;
+        &lt;rdf:value&gt;D08.586.682.075.400&lt;/rdf:value&gt;
+        &lt;rdfs:label&gt;Formate Dehydrogenase&lt;/rdfs:label&gt;
+      &lt;/dcterms:MESH&gt;
+    &lt;/dc:subject&gt;
+  &lt;/rdf:Description&gt;
+
+&lt;/rdf:RDF&gt;</pre>
+
+<p>Figure X - Reccommended definition of keyword metadata using Dublin Core
+vocabulary encoding terms.</p>
+
 <p></p>
 
+<p>If no appropriate term is available from within the vocabularies defined
+within Dublin Core, a CellML element may be annotated to a free text literal or
+a URI</p>
+
+<p></p>
+<pre>&lt;rdf:RDF 
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcterms="http://purl.org/dc/terms/"&gt;
+
+    &lt;rdf:Description rdf:about="#some_CellML_element"&gt;
+      &lt;dcterms:subject&gt;cell biology&lt;/dcterms:subject&gt;
+    &lt;/rdf:Description&gt;
+
+&lt;/rdf:RDF&gt;</pre>
+
+<p>Figure X - Reccommended definition of keyword using free text</p>
+
+<p></p>
+<pre>&lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcterms="http://purl.org/dc/terms/"&gt;
+
+    &lt;rdf:Description rdf:about="#some_CellML_element"&gt;
+      &lt;dcterms:subject rdf:resource="http://example.org/taxonomy/D003.53"/&gt;
+    &lt;/rdf:Description&gt;
+
+&lt;/rdf:RDF&gt;</pre>
+
+<p>Figure X - Reccommended definition of keyword using URI</p>
+
 <h3>Model provenance</h3>
+
+<p>Model provenance metadata provides information about who created a CellML
+document, who contributed it, the date of creation, the person or organisation
+responsible for making it available, and the distribution and usage rights
+ascribed to it. Dublin Core and vCard are used to define this metadata. As
+such, model provenance metadata about CellML models can be widely understood by
+CellML-naive individuals and software tools.</p>
 
 <h3><a id="sec_model_creator" name="sec_model_creator">4.1 Model
 Creator</a></h3>
